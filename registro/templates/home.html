@@ -1,0 +1,132 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}"> 
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %} ">
+    <link rel="stylesheet" href="{% static 'css/flexboxgrid.css' %} " >
+    <link rel="stylesheet" href="{% static 'css/estilo.css' %} ">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">    
+    <title>Home</title>
+</head>
+<body>
+ <!---------------------------- BARRA DE NAVEGACION ------------------------>
+<nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">*Batman*</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li><a href="/registro/templates/Home.html">Home</a></li>
+                <li><a href="/registro/templates/Service.html">Services</a></li>
+                <li><a href="/registro/templates/tourism.html">Tourism</a></li>
+                <li><a href="/registro/templates/contact.html">Contact Us</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/registro/templates/singup.html"><span class="glyphicon glyphicon-user" ></span> Sign Up</a></li>
+                <li><a href="#" data-toggle="modal" data-target="#login-modal">Login</a></li>
+            </ul> 
+        </div>
+        <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+          <div class="modal-dialog">
+          <div class="loginmodal-container">
+            <h1>Login to Your Account</h1><br>
+            <form>
+            <input type="text" name="user" placeholder="Username">
+            <input type="password" name="pass" placeholder="Password">
+            <input type="submit" name="login" class="login loginmodal-submit" value="Login">
+            </form>
+            
+            <div class="login-help">
+            <a href="#">Register</a> - <a href="#">Forgot Password</a>
+            </div>
+          </div>
+        </div>
+        </div>
+</nav>
+
+<!--Titulo-->
+<div class="jumbotron text-center">
+  <h1>Immigration</h1>
+  <p>What you need to know, you find it here</p> 
+</div>
+
+<!--Testimonios-->
+<h2 id="testimonio">Testimonies
+  <div class='container'>
+    <div class='row'>
+      <div class='col-md-12 ' data-wow-delay='0.2s'>
+        <div class='carousel slide' data-ride='carousel' id='quote-carousel'>  
+          <!-- carrusel slide -->
+          <div class='carousel-inner text-center'>
+            <!-- testimonio 1-->
+            <div class='item active'>
+              <blockquote>
+                <div class='row'>
+                  <div class='col-sm-9 col-sm-offset-2'>
+                    <p>In Chile is necessary to cover the subject of immigration and on this page we inform ourselves of what matters most such as the various procedures to perform and also have tourist sites throughout the country.</p>
+                    <img src="" alt="" srcset="">
+                    <small style="color: black">JINA.- 20 years old, Haiti</small>
+                  </div>
+                </div>
+              </blockquote>
+            </div>
+            <!-- testimonio 2 -->
+            <div class='item'>
+              <blockquote>
+                <div class='row'>
+                  <div class='col-sm-9 col-sm-offset-2'>
+                    <p>My arrival to Chile was complicated, I didn't know what to do from the beginning until I found this website which helped me a lot, I also got a job.</p>
+                     <small style="color: black">Romario es un suertudo</small>
+                     <img src="{% static 'Imagenes/ossas.png' %}"  alt="" srcset="">
+                  </div>
+                </div>
+              </blockquote>
+            </div>
+            <!-- testimonio 3 -->
+            <div class='item'>
+              <blockquote>
+                <div class='row'>
+                  <div class='col-sm-9 col-sm-offset-2'>
+                    <p>Chile needs a change of mentality at the moment of receiving a foreigner, they lack empathy and to be more human, this page demonstrates that there are people interested in helping people in situations like mine....</p>
+                    <img src="{% static 'Imagenes/duoc.png' %}" alt="" srcset="">
+                    <small style="color: black">Suertudo</small>
+                  </div>
+                </div>
+              </blockquote>
+            </div>
+          </div>
+  
+          <!-- botones carrusel left right -->
+          <a data-slide='prev' href='#quote-carousel' class='left carousel-control'><i class='fa fa-chevron-left'></i></a>
+          <a data-slide='next' href='#quote-carousel' class='right carousel-control'><i class='fa fa-chevron-right'></i></a>
+        </div>
+      </div>
+    </div>
+  </div>    
+</h2>
+
+<br>
+<!----------------Footeer-------------->
+<footer class="footer">
+  <div style="text-align: center">
+      <p style="color:grey" >Copyright &copy 2018 All Rights Reserved.</p>
+      <div>
+          <a href="https://www.facebook.com"><i class="fa fa-facebook" ></i></a>
+          <a href="#"><i class="fa fa-instagram"></i></a>
+          <a href="#"><i class="fa fa-twitter"></i></a>
+          <a href="#"><i class="fa fa-google-plus"></i></a> 
+      </div>
+  </div>
+</footer>
+  
+<script src="{% static 'js/jquery-3.3.1.js' %}"></script>
+<script src="{% static 'js/bootstrap.js' %} "></script>
+<script src="{% static 'js/app.js' %} "></script>   
+<script src="{% static 'js/validar.js' %} "></script>
+</body>
+</html>

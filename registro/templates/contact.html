@@ -1,0 +1,116 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}"> 
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %} ">
+    <link rel="stylesheet" href="{% static 'css/flexboxgrid.css' %} " type="text/css">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/estilo.css' %} ">
+    
+    <title>Contact Us</title>
+</head>
+<body>
+    
+<!---------------------------- BARRA DE NAVEGACION ------------------------>
+<nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">*Batman*</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li><a href="/registro/templates/Home.html">Home</a></li>
+                <li><a href="/registro/templates/Service.html">Services</a></li>
+                <li><a href="/registro/templates/tourism.html">Tourism</a></li>
+                <li><a href="/registro/templates/contact.html">Contact Us</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/registro/templates/singup.html"><span class="glyphicon glyphicon-user" ></span> Sign Up</a></li>
+                <li><a href="#" data-toggle="modal" data-target="#login-modal">Login</a></li>
+            </ul> 
+        </div>
+    <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+      <div class="modal-dialog">
+      <div class="loginmodal-container">
+        <h1>Login to Your Account</h1><br>
+        <form>
+        <input type="text" name="user" placeholder="Username">
+        <input type="password" name="pass" placeholder="Password">
+        <input type="submit" name="login" class="login loginmodal-submit" value="Login">
+        </form>
+        
+        <div class="login-help">
+        <a href="#">Register</a> - <a href="#">Forgot Password</a>
+        </div>
+      </div>
+    </div>
+    </div>
+</nav>
+<!--Titulo-->
+<div class="jumbotron text-center">
+        <h1>Contact Us</h1>
+        <p>If you need help or are disoriented, contact us, we have all the information you may need</p> 
+      </div>
+<!---------------------------- Formulario ------------------------>
+
+<div class="container" >
+    <form action="#" id="formulario" method="get">
+        <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+          <div class="form-group"></div>
+          <!--name-->
+          <h3  for="name">Name *</h3>
+          <input style="text-align: left" type="text" class="form-control" name="name" required  placeholder="Enter your Name" id="nom">   
+          <br>
+          <!--Email-->
+          <h3 for="Email">Email *</h3>
+          <input  style="text-align: left" type="email" class="form-control" name="Email" required  placeholder="Enter your Email" id="cor">
+          <br>
+        <!--phone-->
+          <h3 for="phone">Phone</h3>
+            <input style="text-align: left" type="number" class="form-control" name="phone" placeholder="Enter your phone" id="fon" >          
+            <br> 
+        <!--Organizacion-->
+          <h3  for="Org">Organization/Company</h3>
+          <input style="text-align: left" type="text" class="form-control" name="Org" placeholder="Enter your Organization/Company" id="org">   
+          <br>          
+          <!--menssage-->
+          <h3  for="Menssage">Message *</h3>
+          <textarea style="text-align: left" type="text" name="menssage" rows="10" cols="40"  placeholder="Enter your message" id="mes"></textarea>    
+          <br>
+
+
+
+        <br>  
+          <button type="reset" class="btn btn-danger btn-block" >Clear</button>
+          <button type="submit" class="btn btn-outline-success btn-block" onclick="return valContacUs()"  value="guardar">Send</button>
+          <br>
+        </div>
+        </div>
+      <div class="col-md-4"></div>
+    </form>    
+</div> 
+<!----------------Footeer-------------->
+<footer class="footer">
+    <div style="text-align: center">
+        <p style="color:grey" >Copyright &copy 2018 All Rights Reserved.</p>
+        <div>
+            <a href="https://www.facebook.com"><i class="fa fa-facebook" ></i></a>
+            <a href="#"><i class="fa fa-instagram"></i></a>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+            <a href="#"><i class="fa fa-google-plus"></i></a> 
+        </div>
+    </div>
+  </footer>
+        
+  
+<script src="{% static 'js/jquery-3.3.1.js' %}"></script>
+<script src="{% static 'js/bootstrap.js' %} "></script>
+<script src="{% static 'js/app.js' %} "></script>   
+<script src="{% static 'js/validar.js' %} "></script>
+</body>
+</html>
