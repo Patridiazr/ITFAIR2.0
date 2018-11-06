@@ -23,9 +23,12 @@ def login(request):
 
 
 def crear_U(request):
-    correo = request.POST.get()
-    contra = request.POST.get()
-    usu = Usuario(correo=correo, contra=contra)
+    correo = request.POST.get('email')
+    contra = request.POST.get('psw')
+    rut = request.POST.get('dni')
+    nombre = request.POST.get('name')
+    nacionalidad = request.POST.get('nationality')
+    usu = Usuario(correo=correo, contra=contra, rut=rut, nombre=nombre, nacionalidad=nacionalidad)
     usu.save()
     return redirect('login')
 
