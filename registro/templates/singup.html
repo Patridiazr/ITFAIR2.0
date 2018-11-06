@@ -17,7 +17,7 @@
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="#">*Batman*</a>
+                <a class="navbar-brand" href="#">IT-FAIR</a>
             </div>
             <ul class="nav navbar-nav">
                 <li><a href="/registro/templates/Home.html">Home</a></li>
@@ -27,10 +27,10 @@
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="/registro/templates/singup.html"><span class="glyphicon glyphicon-user" ></span> Sign Up</a></li>
-                <li><a href="#" data-toggle="modal" data-target="#login-modal">Login</a></li>
+                <li><a href="/registro/templates/login.html"><span class="glyphicon glyphicon-user" ></span>Login</a></li>
             </ul> 
         </div>
-    <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <!-- <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
       <div class="modal-dialog">
       <div class="loginmodal-container">
         <h1>Login to Your Account</h1><br>
@@ -45,7 +45,7 @@
         </div>
           </div>
     </div>
-    </div>
+    </div> -->
 </nav>
 <!--Titulo-->
     <div class="jumbotron text-center">
@@ -57,17 +57,13 @@
 <form name="form1" action="action_page.php" style="border:1px solid #ccc">
     <div class="container">
 
+        <label for="dni"><b>DNI -- N° Pasaport</b></label>
+        <input type="number"class="form-control" placeholder="Enter DNI or Number Pasaport" name="dni" id="dni" required>
+
         <label for="name"><b>Name *</b></label>
         <input type="text" placeholder="Enter Name" name="name" id="nom" required>
       
         <label for="nationality"><b>Nationality </b></label>
-
-        <select name="Cnac" id="comboNac" onchange="if(this.value=='3' || this.value == 3){ document.getElementById('nac').disabled = false} else {document.getElementById('nac').disabled = true }" >
-            <option value="0">a</option>
-            <option value="1">b</option>
-            <option value="2">c</option>
-            <option value="3">d</option>        
-        </select>
 
         <input type="text" placeholder="Enter Nationality" name="nationality" id="nac" disabled >
       

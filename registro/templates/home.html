@@ -1,16 +1,15 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet"/>
     <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}"> 
-    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %} ">
-    <link rel="stylesheet" href="{% static 'css/flexboxgrid.css' %} " >
-    <link rel="stylesheet" href="{% static 'css/estilo.css' %} ">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">    
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/flexboxgrid.css' %}" >
+    <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
     <title>Home</title>
 </head>
 <body>
@@ -18,7 +17,7 @@
 <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="#">*Batman*</a>
+                <a class="navbar-brand" href="#">IT-FAIR</a>
             </div>
             <ul class="nav navbar-nav">
                 <li><a href="/registro/templates/Home.html">Home</a></li>
@@ -28,10 +27,10 @@
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="/registro/templates/singup.html"><span class="glyphicon glyphicon-user" ></span> Sign Up</a></li>
-                <li><a href="#" data-toggle="modal" data-target="#login-modal">Login</a></li>
+                <li><a href="/registro/templates/login.html" ><span class="glyphicon glyphicon-user" ></span>Login</a></li>
             </ul> 
         </div>
-        <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+        <!-- <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
           <div class="modal-dialog">
           <div class="loginmodal-container">
             <h1>Login to Your Account</h1><br>
@@ -40,13 +39,12 @@
             <input type="password" name="pass" placeholder="Password">
             <input type="submit" name="login" class="login loginmodal-submit" value="Login">
             </form>
-            
             <div class="login-help">
             <a href="#">Register</a> - <a href="#">Forgot Password</a>
             </div>
           </div>
         </div>
-        </div>
+        </div> -->
 </nav>
 
 <!--Titulo-->
@@ -82,7 +80,7 @@
                   <div class='col-sm-9 col-sm-offset-2'>
                     <p>My arrival to Chile was complicated, I didn't know what to do from the beginning until I found this website which helped me a lot, I also got a job.</p>
                      <small style="color: black">Romario es un suertudo</small>
-                     <img src="{% static 'Imagenes/ossas.png' %}"  alt="" srcset="">
+                     <img src="/static/imagenes/ossas.png" alt="" srcset="">
                   </div>
                 </div>
               </blockquote>
@@ -93,7 +91,7 @@
                 <div class='row'>
                   <div class='col-sm-9 col-sm-offset-2'>
                     <p>Chile needs a change of mentality at the moment of receiving a foreigner, they lack empathy and to be more human, this page demonstrates that there are people interested in helping people in situations like mine....</p>
-                    <img src="{% static 'Imagenes/duoc.png' %}" alt="" srcset="">
+                    <img src="/static/imagenes/duoc.png" alt="" srcset="">
                     <small style="color: black">Suertudo</small>
                   </div>
                 </div>
@@ -125,8 +123,10 @@
 </footer>
   
 <script src="{% static 'js/jquery-3.3.1.js' %}"></script>
-<script src="{% static 'js/bootstrap.js' %} "></script>
-<script src="{% static 'js/app.js' %} "></script>   
-<script src="{% static 'js/validar.js' %} "></script>
+<script src="{% static 'js/popper.js' %}"></script>
+<script src="{% static 'js/bootstrap.js' %}"></script>
+<script src="{% static 'js/jquery.validate.js' %}"></script>
+<script src="{% static 'js/app.js' %}"></script>  
+
 </body>
 </html>

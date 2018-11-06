@@ -1,222 +1,435 @@
-/* Documento */
 body{
-    margin: 0px;
-    padding: 0;
-    position: relative;
-}
-/* LOGO */
-header #logo{
-    background-color: #85D4B7 ;
-    align-content: center;
+    margin: 0%;
     padding: 0%;
-    height: 65px;
-    border: 0px;
+    position: initial;
 }
-/* BARRA DE NAVEGACION */
-.navbar-nav{
+/*          Navbar          */
+.navbar{
     width: 100%;
     text-align: right;
 }
-/* BARRA DE NAVEGACION */
 .nav-link{
     float: right;
     font-size: 20px;
 }
-/* REDES SOCIALES */
-div .col-md-12{
-  text-align: center;
-  font-size: 30px;
-}
-.d-md-block {
-  background-color: rgba(0, 0, 0, 0.6);
-  border-radius: 2px;
-}
-/* CARRUSEL*/
 .center-crop{
+    padding: 0%;
+    margin: 0%;
     max-height: 400px;
     min-height: 300px;
     object-fit: cover;
     object-position: center;
+    width: 100%;
 }
-SECTION DERECHA
-section #web-right {
-    height: auto;
-    padding:50px;
+.card{
+    border-right-color: yellow;
 }
-/* SECTION DERECHA */
-#web-right .col-md-12 {
-  float: right;
-  width: 40%;
-  padding:20px;
-  margin: 50px;
-} 
-
-/* SECTION IZQUIERDA */
-section #web-left {
-  height: auto;
-  padding:50px;
+.carousel-inner img {
+    width: 100%;
+    max-height: 460px;
 }
-/* SECTION IZQUIERDA */
-#web-left .col-md-12 {
-float: left;
-width: 40%;
-padding:20px;
-margin: 50px;
-} 
-
-/* TITULOS DERECHO*/
-h1.title {
-  font-weight: bold;
-  text-transform: uppercase;
-  text-align: right;
-  margin-bottom:5px;
-  margin-top:0px;
-}
-/* SUBTITULOS DERECHO */
-h3.subtitle {
-  text-transform: uppercase;
-  text-align: right;
-  color:#333333;
-  font-size:15px;
-  margin-top:5px;
-}
-/* PARRAFO DERECHO*/
-.right p {
-  text-align: right;
-}
-
-/* TITULO IZQUIERDO */
-.left h1.title {
-  font-weight: bold;
-  text-transform: uppercase;
-  text-align: left;
-  margin-bottom:5px;
-  margin-top:0px;
-}
-/* SUBTITULO IZQUIERDO */
-.left h3.subtitle {
-  text-transform: uppercase;
-  text-align: left;
-  color:#333333;
-  font-size:15px;
-  margin-top:5px;
-}
-/* PARRAFO IZQUIERDO*/
-.left p {
-    text-align: left;
-  } 
-
-/* CAMPAÑAS */
-#campaigns {
-  background-color:#fff;
-  padding:10px 25px;
-  border: solid 3px #333333;
-  color: #333333;
-  font-weight: bold;
-  cursor: pointer;
-}
-/* GALERIA DE IMAGENES */
-.thumb {
-  max-width:180px;
-  max-height:200px;
-
-}
-.grid-container{
-  display: block;
-  float: left;
-  margin: 50px;
-  object-position: center;
-  background-repeat: none;
-  background-color:#85D4B7; 
-  
-  max-width: 100%;
-  max-height: 100%
-}
-.foto {
-  position: sticky;
-  border-color: black;
-  width: 100px;
-  height:100px;
-  border:1px dotted #85D4B7;  
-  padding: 8px ;
-  margin:10px;
-  float: left;
-  
- 
-}
-.foto:hover {
-  border-color:tomato;
-  opacity: 100;
-  
-} 
-/* TEXTO DE PIE DE PAGINA */
+/*     Footer     */
 .footer {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  background-color: #333333;
-  color: white;
-  text-align: center;
-}
+    background: #061D25;
+    padding: 10px 0;
 
-/*Formulario*/
-.container  {
-  background-color: #85D4B7;
-}
-
-/*Login page*/
-
-/* MODIAL*/
+  }
+  .footer a {
+    color: #70726F;
+    font-size: 20px;
+    padding: 10px;
+    border-right: 1px solid #70726F;
+    transition: all .5s ease;
+    
+  }
+  .footer a:first-child {
+    border-left: 1px solid #70726F;
+  }
+  .footer a:hover {
+    color: white;
+  }
+  
+/* Modal  */
 .modalDialog {
-	position: fixed;
-	font-family: Arial, Helvetica, sans-serif;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;
-	background: rgba(0,0,0,0.8);
-	z-index: 99999;
-	opacity:0;
-	-webkit-transition: opacity 400ms ease-in;
-	-moz-transition: opacity 400ms ease-in;
-	transition: opacity 400ms ease-in;
-	pointer-events: none;
+    position: fixed;
+    font-family: Arial, Helvetica, sans-serif;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0,0,0,0.8);
+    z-index: 99999;
+    opacity:0;
+    -webkit-transition: opacity 400ms ease-in;
+    -moz-transition: opacity 400ms ease-in;
+    transition: opacity 400ms ease-in;
+    pointer-events: none;
 }
+
 .modalDialog:target {
-	opacity:1;
-	pointer-events: auto;
+    opacity:2;
+    pointer-events: auto;
 }
+
 .modalDialog > div {
-	width: 400px;
-	position: relative;
-	margin: 10% auto;
-	padding: 5px 20px 13px 20px;
-	border-radius: 10px;
-	background: #fff;
-	background: -moz-linear-gradient(#fff, #999);
-	background: -webkit-linear-gradient(#fff, #999);
-	background: -o-linear-gradient(#fff, #999);
-  -webkit-transition: opacity 400ms ease-in;
--moz-transition: opacity 400ms ease-in;
-transition: opacity 400ms ease-in;
+    width: 400px;
+    position: relative;
+    margin: 10% auto;
+    padding: 5px 20px 13px 20px;
+    border-radius: 10px;
+    background: #fff;
+    background: -moz-linear-gradient(#fff, #999);
+    background: -webkit-linear-gradient(#fff, #999);
+    background: -o-linear-gradient(#fff, #999);
 }
+
 .close {
-	background: #606061;
-	color: #FFFFFF;
-	line-height: 25px;
-	position: absolute;
-	right: -12px;
-	text-align: center;
-	top: -10px;
-	width: 24px;
-	text-decoration: none;
-	font-weight: bold;
-	-webkit-border-radius: 12px;
-	-moz-border-radius: 12px;
-	border-radius: 12px;
-	-moz-box-shadow: 1px 1px 3px #000;
-	-webkit-box-shadow: 1px 1px 3px #000;
-	box-shadow: 1px 1px 3px #000;
+    opacity: 4;
+    background: #ff0000;
+    color: rgb(206, 0, 0,0.5);
+    line-height: 25px;
+    position: absolute;
+    right: -12px;
+    text-align: center;
+    top: -10px;
+    width: 24px;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    border-radius: 12px;
+    -moz-box-shadow: 1px 1px 3px #000;
+    -webkit-box-shadow: 1px 1px 3px #000;
+    box-shadow: 1px 1px 3px #000;
 }
-.close:hover { background: #00d9ff; }
+
+.close:hover { background: #ff0000; }
+
+
+/* carrusel home */
+#quote-carousel {
+    padding: 0 10px 30px 10px;
+    margin-top: 30px;
+}
+#quote-carousel .carousel-control {
+    background: none;
+    color: #CACACA;
+    font-size: 2.3em;
+    text-shadow: none;
+    margin-top: 30px;
+}
+#quote-carousel .carousel-control.left {
+    left: -60px;
+}
+#quote-carousel .carousel-control.right {
+    right: -60px;
+}
+#quote-carousel .carousel-indicators {
+    right: 50%;
+    top: auto;
+    bottom: 0px;
+    margin-right: -19px;
+}
+#quote-carousel .carousel-indicators li {
+    width: 50px;
+    height: 50px;
+    margin: 5px;
+    cursor: pointer;
+    border: 4px solid #CCC;
+    border-radius: 50px;
+    opacity: 0.4;
+    overflow: hidden;
+    transition: all 0.4s;
+}
+#quote-carousel .carousel-indicators .active {
+    background: #333333;
+    width: 128px;
+    height: 128px;
+    border-radius: 100px;
+    border-color: #f33;
+    opacity: 1;
+    overflow: hidden;
+}
+.carousel-inner {
+    min-height: 300px;
+}
+.item blockquote {
+    border-left: none;
+    margin: 0;
+}
+.item blockquote p:before {
+    content: "\f10d";
+    font-family: 'Fontawesome';
+    float: left;
+    margin-right: 10px;
+}
+div .modalDialog a{
+    background-color:rgb(42, 161, 197);
+    color: rgb(0, 0, 0);
+      
+}
+
+/* Tittle Home */
+.jumbotron {
+    background-color:darkcyan;
+    color: aliceblue;
+    margin:0;
+    
+
+}
+ #testimonio{
+    background-color: darkcyan;
+    color: aliceblue;
+    text-align-last: center;
+    size:20;
+    margin: 20px;
+}
+
+/* GALERIA */
+.galeria li{
+    margin: 5px;
+}
+.galeria img{
+    width: 250px;
+    height: 200px;
+}
+.galeria{
+    width: 98%;
+    margin: auto;
+    list-style: none;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.fotos{
+    display: none;  
+}
+
+.fotos:target{
+    display: block;
+    position: fixed;
+    background: rgba(0, 0, 0, 0.8)    ;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    }
+.fotos h3{
+    color:white;
+    font-size: 30px;
+    text-align: center;
+    margin: 15px 0;
+
+}
+.cerrar{
+    display: block;
+    background: #fff;
+    width: 25px;
+    height: 25px;
+    margin: auto;    
+    text-decoration: none;
+    font-size: 25px;
+    color: #000;
+    padding: 5px;
+    border-radius: 50%;
+    line-height: 25px;
+    text-align: right;
+}
+.imgs{
+    width: 100%;
+    height: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.imgs a{
+    color: white;
+    font-size: 60px;
+    text-decoration: none;
+    margin: 0 60px;
+}.imgs a:nth-child(2){
+    margin: 0;
+    height: 100%;
+    flex-shrink: 2;
+}
+.imgs img{
+    width: 900px;
+    height: 550px;
+    max-width: 100%;
+    border: 8px;
+    box-sizing: border-box;
+}
+h2.pp{
+    color: white;
+    background-color: rgba(0, 0, 0,0.5);
+}
+p.p1{
+    color:white;
+    background-color: rgba(0, 0, 0,0.5); 
+}
+
+/*LOGIN MODAL*/
+.loginmodal-container {
+  padding: 30px;
+  max-width: 350px;
+  width: 100% !important;
+  background-color: #F7F7F7;
+  margin: 0 auto;
+  border-radius: 2px;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  font-family: roboto;
+}
+
+.loginmodal-container h1 {
+  text-align: center;
+  font-size: 1.8em;
+  font-family: roboto;
+}
+
+.loginmodal-container input[type=submit] {
+  width: 100%;
+  display: block;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.loginmodal-container input[type=text], input[type=password] {
+  height: 44px;
+  font-size: 16px;
+  width: 100%;
+  margin-bottom: 10px;
+  -webkit-appearance: none;
+  background: #fff;
+  border: 1px solid #d9d9d9;
+  border-top: 1px solid #c0c0c0;
+  /* border-radius: 2px; */
+  padding: 0 8px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+
+.loginmodal-container input[type=text]:hover, input[type=password]:hover {
+  border: 1px solid #b9b9b9;
+  border-top: 1px solid #a0a0a0;
+  -moz-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+  -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.loginmodal {
+  text-align: center;
+  font-size: 14px;
+  font-family: 'Arial', sans-serif;
+  font-weight: 700;
+  height: 36px;
+  padding: 0 8px;
+/* border-radius: 3px; */
+/* -webkit-user-select: none;
+  user-select: none; */
+}
+
+.loginmodal-submit {
+  /* border: 1px solid #3079ed; */
+  border: 0px;
+  color: #fff;
+  text-shadow: 0 1px rgba(0,0,0,0.1); 
+  background-color: #4d90fe;
+  padding: 17px 0px;
+  font-family: roboto;
+  font-size: 14px;
+  /* background-image: -webkit-gradient(linear, 0 0, 0 100%,   from(#4d90fe), to(#4787ed)); */
+}
+
+.loginmodal-submit:hover {
+  /* border: 1px solid #2f5bb7; */
+  border: 0px;
+  text-shadow: 0 1px rgba(0,0,0,0.3);
+  background-color: #357ae8;
+  /* background-image: -webkit-gradient(linear, 0 0, 0 100%,   from(#4d90fe), to(#357ae8)); */
+}
+
+.loginmodal-container a {
+  text-decoration: none;
+  color: #666;
+  font-weight: 400;
+  text-align: center;
+  display: inline-block;
+  opacity: 0.6;
+  transition: opacity ease 0.5s;
+} 
+
+.login-help{
+  font-size: 12px;
+} 
+
+/* registrer */
+
+* {box-sizing: border-box}
+
+/* Full-width input fields */
+  input[type=text], input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+/* Set a style for all buttons */
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+button:hover {
+  opacity:1;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+  padding: 14px 20px;
+  background-color: #f44336;
+}
+
+/* Float cancel and signup buttons and add an equal width */
+.cancelbtn, .signupbtn {
+  float: left;
+  width: 50%;
+}
+
+/* Add padding to container elements */
+.container {
+  padding: 16px;
+}
+
+/* Clear floats */
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/* Change styles for cancel button and signup button on extra small screens */
+@media screen and (max-width: 300px) {
+  .cancelbtn, .signupbtn {
+    width: 100%;
+  }
+}
