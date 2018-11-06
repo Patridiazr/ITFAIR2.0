@@ -11,13 +11,19 @@ def contact(request):
     return render(request,"contact.html")
 def tourism(request):
     return render(request,"tourism.html")
-<<<<<<< HEAD
+def singup(request):
+    return render(request,"singup.html")
+def login(request):
+    return render(request,"login.html")
 
 
 def crear_U(request):
-    correo = request.POST.get()
-    contra = request.POST.get()
-    usu = Usuario(correo=correo, contra=contra)
+    correo = request.POST.get('email')
+    contra = request.POST.get('psw')
+    rut = request.POST.get('dni')
+    nombre = request.POST.get('name')
+    nacionalidad = request.POST.get('nationality')
+    usu = Usuario(correo=correo, contra=contra, rut=rut, nombre=nombre, nacionalidad=nacionalidad)
     usu.save()
     return redirect('login')
 
@@ -30,11 +36,7 @@ def crear_M(request):
     men = Mensaje(correo=correo, orga=org, mensaje=mensaje, nombre=nombre, celu=celu)
     me.save()
     return redirect('contact.html')
-=======
-def singup(request):
-    return render(request,"singup.html")
-def login(request):
-    return render(request,"login.html")
+
 
 def login_iniciar(request):
     usuario = request.POST.get('dni','')
@@ -45,4 +47,3 @@ def login_iniciar(request):
         return HttpResponse('<script>alert("Inicio de sesión correcto."); window.location.href="/index/";</script>')
     else:
         return HttpResponse('<script>alert("Ocurrió un error, intenta nuevamente..."); window.location.href="/login/";</script>')
->>>>>>> 6950b4312a04b23e95dcb4305435a64f95426702

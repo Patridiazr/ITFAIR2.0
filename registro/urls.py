@@ -18,4 +18,6 @@ urlpatterns =[
     path('registro/templates/singup.html',views.singup, name="singup"),
     path('registro/templates/login.html',views.login, name="login"),
     path(r'^login/iniciar/$',views.login_iniciar,name="iniciar")
+    path('',views.crear_U,name="crear")
+
 ]
