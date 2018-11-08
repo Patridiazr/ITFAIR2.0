@@ -26,6 +26,9 @@
                 <li><a href="/registro/templates/Service.html">Services</a></li>
                 <li><a href="/registro/templates/tourism.html">Tourism</a></li>
                 <li><a href="/registro/templates/contact.html">Contact Us</a></li>
+                {%  if user.is_superuser % }
+                <li><a href="/registro/templates/mantenedor.html">Mantenedor</a> </li>
+                {%  endif % }
             </ul>
             <ul class="nav navbar-nav navbar-form">
                     <div id="google_translate_element"></div><script type="text/javascript">

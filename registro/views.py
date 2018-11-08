@@ -54,3 +54,9 @@ def login_iniciar(request):
         return HttpResponse('<script>alert("Inicio de sesión correcto."); window.location.href="/index/";</script>')
     else:
         return HttpResponse('<script>alert("Ocurrió un error, intenta nuevamente..."); window.location.href="/registro/login.html";</script>')
+
+
+def eliminar_U(request, id_p):
+    usuario = Usuario.objects.get(id=id_p)
+    usuario.delete()
+    return redirect('Listado')

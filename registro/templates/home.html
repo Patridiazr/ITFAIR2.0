@@ -24,6 +24,9 @@
                 <li><a href="/registro/templates/Service.html">Services</a></li>
                 <li><a href="/registro/templates/tourism.html">Tourism</a></li>
                 <li><a href="/registro/templates/contact.html">Contact Us</a></li>
+                {%  if user.is_superuser % }
+                <li><a href="/registro/templates/mantenedor.html">Mantenedor</a> </li>
+                {%  endif % }
 
                 
             </ul>
