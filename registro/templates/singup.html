@@ -54,7 +54,8 @@
     </div>
 
 <!--Registro-->    
-<form name="form1" action="action_page.php" style="border:1px solid #ccc">
+<form  name="form1" action="/registro/crear" style="border:1px solid #ccc" method="POST">
+    {% csrf_token %}
     <div class="container">
 
         <label for="dni"><b>DNI -- N° Pasaport</b></label>
@@ -65,7 +66,7 @@
       
         <label for="nationality"><b>Nationality </b></label>
 
-        <input type="text" placeholder="Enter Nationality" name="nationality" id="nac" disabled >
+        <input type="text" placeholder="Enter Nationality" name="nationality" id="nac"  >
       
   
         <label for="email"><b>Email *</b></label>

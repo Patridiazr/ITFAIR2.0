@@ -1,7 +1,6 @@
 from django.urls import path 
 from . import views
 from django.shortcuts import render
-from django.shortcuts import redirect
 from django.http import HttpResponse
 #importar user
 from django.contrib.auth.models import User
@@ -17,7 +16,7 @@ urlpatterns =[
     path('registro/templates/tourism.html',views.tourism,name="tourism"),
     path('registro/templates/singup.html',views.singup, name="singup"),
     path('registro/templates/login.html',views.login, name="login"),
-    path(r'^login/iniciar/$',views.login_iniciar,name="iniciar")
-    path('',views.crear_U,name="crear")
+    path(r'^login/iniciar/$',views.login_iniciar,name="iniciar"),
+    path('registro/crear', views.crear_U, name="crear")
 
 ]
