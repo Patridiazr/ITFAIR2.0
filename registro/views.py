@@ -58,11 +58,16 @@ def login_iniciar(request):
         auth_login(request, user)
         return HttpResponse('<script>alert("Inicio de sesión correcto."); window.location.href="home";</script>')
     else:
-        return HttpResponse('<script>alert("Ocurrió un error, intenta nuevamente..."); window.location.href="/registro/login.html";</script>')
+        return HttpResponse('<script>alert("Ocurrió un error, intenta nuevamente..."); window.location.href="/..";</script>')
 
 
 def eliminar_U(request, id_p):
     usuario = Usuario.objects.get(id=id_p)
     usuario.delete()
-    return redirect('Listado')
-        return HttpResponse('<script>alert("Ocurrió un error, intenta nuevamente..."); window.location.href="/..";</script>')
+    return redirect('mantenedor')
+
+def listado(request):
+    usuario = Usuario.objects.all()
+    contexto = {'usuario': usuario}
+    return render (request, 'mantenedor.html', contexto)   
+

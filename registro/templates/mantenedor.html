@@ -47,29 +47,21 @@
 
     <table class="table table-bordered"></table>
     <thead>
-            <tr>
-                <td>#</td>
-                <td>Foto</td>
-                <td>Nombre</td>
-                <td>Raza</td>
-                <td>Descripcion</td>
-                <td>Estado</td>       
-                <td>Acciones</td>           
-            </tr>              
-          </thead>
+        <tbody>
+
           <tbody>
-            {% if Disponibles %}
-            {% for p in Disponibles %}
+            {% if usuario %}
+            {% for p in usuario %}
             
             <tr>
-              <td>{{ p.id }}</td>
-              <td>{{ p.foto }}</td>
-              <td>{{ p.nombre }} </td>
-              <td>{{ p.raza }}</td>
-              <td>{{ p.descripcion }}</td>
-              <td>{{ p.estado }}</td>  
+              <td>{{ u.dni }}</td>
+              <td>{{ u.username }}</td>
+              <td>{{ u.nom}} </td>
+              <td>{{ u.nationality }}</td>
+              <td>{{ u.ema }}</td>
+              <td>{{ u.psw }}</td>  
               <td> 
-                  <a class="btn btn-primary" href="/registro/editar/{{p.id}}">Editar</a>
+                  <a class="btn btn-primary" href="/registro/mantenedor/{{p.id}}">Editar</a>
                   <a class="btn btn-danger" href="#openModal">Eliminar</a>
 
 
@@ -78,11 +70,11 @@
                       <div>
                           <a href="#close" title="Close" class="close">X</a>
                           
-                          <form action="/registro/eliminar/{{p.id}}" method="POST" >
+                          <form action="/registro/mantenedor/{{p.id}}" method="POST" >
                               {% csrf_token %}
-                              <h4>¿Esta seguro de eliminar este registro?</h4>
+                              <h4>¿Esta seguro de eliminar este usuario?</h4>
                               <button class="btm btn-danger"  type="submit">Si, eliminar</button>
-                              <a class="btn btn-default" href="listado.html">Cancelar</a>
+                              <a class="btn btn-default" href="mantenedor.html">Cancelar</a>
           
                           </form>
                           
