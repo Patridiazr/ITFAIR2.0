@@ -25,7 +25,14 @@
             <li><a href="{% url 'home' %}">Home</a></li>
             <li><a href="{% url 'service' %}">Services</a></li>
             <li><a href="{% url 'tourism' %}">Tourism</a></li>
+            {% if user.is_authenticated %}
             <li><a href="{% url 'contact' %}">Contact Us</a></li>
+            {% endif %}
+              {% if user.is_superuser %}
+              <li><a href="{% url 'mantenedor' %}">Mantenedor</a> </li>
+              {% endif %}
+            
+            
         </ul>
         
           <ul class="nav navbar-nav navbar-form">

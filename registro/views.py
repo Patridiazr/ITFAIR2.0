@@ -27,6 +27,9 @@ def singup(request):
 def login(request):
     return render(request,"login.html")
 
+def mantenedor(request):
+    return render(request,"mantenedor.html")
+
 
 def crear_U(request):
     correo = request.POST.get('email')
@@ -64,12 +67,12 @@ def login_iniciar(request):
 
 def logout_view(request):
     logout(request)
-    return redirect('login')
+    return redirect('home')
     
 
 
-def eliminar_U(request, id_p):
-    usuario = Usuario.objects.get(id=id_p)
+def eliminar_U(request, id_u):
+    usuario = Usuario.objects.get(id=id_u)
     usuario.delete()
     return redirect('mantenedor')
 

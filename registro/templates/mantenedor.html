@@ -16,81 +16,90 @@
   <body>
     <!---------------------------- BARRA DE NAVEGACION ------------------------>
     <nav class="navbar navbar-inverse">
-      <div class="container-fluid">
-          <div class="navbar-header">
-              <a class="navbar-brand" href="#">IT-FAIR</a>
-          </div>
-          <ul class="nav navbar-nav">
-              <li><a href="/registro/templates/Home.html">Home</a></li>
-              <li><a href="/registro/templates/Service.html">Services</a></li>
-              <li><a href="/registro/templates/tourism.html">Tourism</a></li>
-              <li><a href="/registro/templates/contact.html">Contact Us</a></li>
-              {%  if user.is_superuser % }
-              <li><a href="/registro/templates/mantenedor.html">Mantenedor</a> </li>
-              {%  endif % }
-          </ul>
-          <ul class="nav navbar-nav navbar-form">
-              <div id="google_translate_element"></div><script type="text/javascript">
-                function googleTranslateElementInit() {
-                  new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, multilanguagePage: true}, 'google_translate_element');
-                }
-                </script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
-          </ul>
-          <ul class="nav navbar-nav navbar-right">
-              <li><a href="/registro/templates/singup.html"><span class="glyphicon glyphicon-user" ></span> Sign Up</a></li>
-              <li><a href="/registro/templates/login.html" ><span class="glyphicon glyphicon-user" ></span> Login</a></li>
-          </ul> 
-
- <ul>
+            <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="#">IT-FAIR</a>
+                    </div>
+                    <ul class="nav navbar-nav">
+                        <li><a href="{% url 'home' %}">Home</a></li>
+                        <li><a href="{% url 'service' %}">Services</a></li>
+                        <li><a href="{% url 'tourism' %}">Tourism</a></li>
+                        <li><a href="{% url 'contact' %}">Contact Us</a></li>
+                        
+                    </ul>
+                    <ul class="nav navbar-nav navbar-form">
+                      <div id="google_translate_element"></div><script type="text/javascript">
+                        function googleTranslateElementInit() {
+                          new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, multilanguagePage: true}, 'google_translate_element');
+                        }
+                        </script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+        
+                  </ul>
+                    
+                    <ul class="nav navbar-nav navbar-right">
+                      {% if not user.is_authenticated %}
+                        <li><a href="{% url 'singup' %}"><span class="glyphicon glyphicon-user" ></span> Sign Up</a></li>
+                        <li><a href="{% url 'login' %}" ><span class="glyphicon glyphicon-user" ></span>Login</a></li>
+                      {% else %}
+                        <li><a href="{% url 'logout' %}"><span class="glyphicon glyphicon-user" ></span>Logout</a></li>
+                      {% endif %}
+                    </ul> 
+                </div>
     <h3>Lista de usuarios registrados</h3>
 
-    <table class="table table-bordered"></table>
-    <thead>
-        <tbody>
-
-          <tbody>
-            {% if usuario %}
-            {% for p in usuario %}
+    <table class="table table-bordered">
+            <thead>
+                    <tr>
+                            <td>Nombre</td>
+                            <td>Nombre de usuario</td>
+                            <td>Email</td>
+                            <td>Contraseña</td>
+                        </tr>
+            </thead>
+                    <tbody>
             
-            <tr>
-              <td>{{ u.dni }}</td>
-              <td>{{ u.username }}</td>
-              <td>{{ u.nom}} </td>
-              <td>{{ u.nationality }}</td>
-              <td>{{ u.ema }}</td>
-              <td>{{ u.psw }}</td>  
-              <td> 
-                  <a class="btn btn-primary" href="/registro/mantenedor/{{p.id}}">Editar</a>
-                  <a class="btn btn-danger" href="#openModal">Eliminar</a>
-
-
-              </td>
-              <div id="openModal" class="modalDialog">
-                      <div>
-                          <a href="#close" title="Close" class="close">X</a>
-                          
-                          <form action="/registro/mantenedor/{{p.id}}" method="POST" >
-                              {% csrf_token %}
-                              <h4>¿Esta seguro de eliminar este usuario?</h4>
-                              <button class="btm btn-danger"  type="submit">Si, eliminar</button>
-                              <a class="btn btn-default" href="mantenedor.html">Cancelar</a>
-          
-                          </form>
+                      
+                        {% if usuario %}
+                        {% for u in usuario %}
+                        
+                        <tr>
                           
                           
-                      </div>
-                  </div>
-              
-              
-            </tr>
+                          <td>{{ u.nombre}} </td>
+                          <td>{{ u.username }}</td>              
+                          <td>{{ u.correo }}</td>
+                          <td>{{ u.contraseña }}</td>  
+                          <td> 
+                              
+                              <a class="btn btn-danger" href="#openModal">Eliminar</a>
             
-            {% endfor %}
-            {% else %}
-            <h1>No hay registros</h1>
-            {% endif %}
-
-          </tbody>
+            
+                          </td>
+                          <div id="openModal" class="modalDialog">
+                                  <div>
+                                      <a href="#close" title="Close" class="close">X</a>                                      
+                                      <form action="eliminar/{{u.id}}" method="POST" >
+                                          {% csrf_token %}
+                                          <h4>¿Esta seguro de eliminar este usuario?</h4>
+                                          <button class="btm btn-danger"  type="submit">Si, eliminar</button>
+                                          <a class="btn btn-default" href="{% url 'mantenedor' %}">Cancelar</a>                      
+                                      </form>
+                                      
+                                      
+                                  </div>
+                              </div>
+                          
+                          
+                        </tr>
+                        
+                        {% endfor %}
+                        {% else %}
+                        <h1>No hay registros</h1>
+                        {% endif %}
+            
+                      </tbody>
+    
+    
       </table>
 
  </ul>         
