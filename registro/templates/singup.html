@@ -34,8 +34,11 @@
     
                 </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="{% url 'singup' %}"><span class="glyphicon glyphicon-user" ></span> Sign Up</a></li>
-                <li><a href="{% url 'login' %}" ><span class="glyphicon glyphicon-user" ></span>Login</a></li>
+                    {% if not user.is_authenticated %}                    
+                    <li><a href="{% url 'login' %}" ><span class="glyphicon glyphicon-user" ></span>Login</a></li>
+                  {% else %}
+                    <li><a href="{% url 'logout' %}"><span class="glyphicon glyphicon-user" ></span>Logout</a></li>
+                  {% endif %}
             </ul> 
         </div>
     <!-- <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
@@ -62,7 +65,7 @@
     </div>
 
 <!--Registro-->    
-<form  name="form1" action="/login/iniciar" style="border:1px solid #ccc" method="POST">
+<form  name="form1" action="{% url 'crear' %}" style="border:1px solid #ccc" method="POST">
     {% csrf_token %}
     <div class="container">
 

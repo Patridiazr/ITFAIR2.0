@@ -1,7 +1,9 @@
 from django.shortcuts import render, redirect
 from .models import Usuario, Mensaje
-from django.contrib.auth import authenticate,login as auth_login
+from django.contrib.auth import logout, authenticate, login as auth_login
 from django.http import HttpResponse
+from django.contrib.auth.models import User
+
 
 
 
@@ -29,15 +31,15 @@ def login(request):
 def crear_U(request):
     correo = request.POST.get('email')
     contra = request.POST.get('psw')
-    username = request.POST.get('')
+    username = request.POST.get('username')
     rut = request.POST.get('dni')
     nombre = request.POST.get('name')
     nacionalidad = request.POST.get('nationality')
     usu = Usuario(correo=correo, contra=contra, rut=rut, nombre=nombre, nacionalidad=nacionalidad)
     usu.save()
-    user = User.objects.create_user(username,correo,contra)
+    user = User.objects.create_user(username=username,email=correo,password=contra)
     user.save()
-    return redirect('login.html')
+    return redirect('login')
 
 def crear_M(request):
     correo = request.POST.get('')
@@ -47,7 +49,7 @@ def crear_M(request):
     nombre = request.POST.get('name')
     men = Mensaje(correo=correo, orga=org, mensaje=mensaje, nombre=nombre, celu=celu)
     men.save()
-    return redirect('contact.html')
+    return redirect('contact')
 
 def login_iniciar(request):
     username = request.POST.get('username','')
@@ -56,6 +58,10 @@ def login_iniciar(request):
     print(username,password)
     if user is not None:
         auth_login(request, user)
-        return HttpResponse('<script>alert("Inicio de sesión correcto."); window.location.href="home";</script>')
+        return HttpResponse('<script>alert("Inicio de sesión correcto."); window.location.href="/";</script>')
     else:
-        return HttpResponse('<script>alert("Ocurrió un error, intenta nuevamente..."); window.location.href="/..";</script>')
+        return HttpResponse('<script>alert("Ocurrió un error, intenta nuevamente..."); window.location.href="/";</script>')
+
+def logout_view(request):
+    logout(request)
+    return redirect('login')
