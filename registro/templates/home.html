@@ -20,14 +20,14 @@
                 <a class="navbar-brand" href="#">IT-FAIR</a>
             </div>
             <ul class="nav navbar-nav">
-                <li><a href="/registro/templates/Home.html">Home</a></li>
-                <li><a href="/registro/templates/Service.html">Services</a></li>
-                <li><a href="/registro/templates/tourism.html">Tourism</a></li>
-                <li><a href="/registro/templates/contact.html">Contact Us</a></li>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'service' %}">Services</a></li>
+                <li><a href="{% url 'tourism' %}">Tourism</a></li>
+                <li><a href="{% url 'contact' %}">Contact Us</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="/registro/templates/singup.html"><span class="glyphicon glyphicon-user" ></span> Sign Up</a></li>
-                <li><a href="/registro/templates/login.html" ><span class="glyphicon glyphicon-user" ></span>Login</a></li>
+                <li><a href="{% url 'singup' %}"><span class="glyphicon glyphicon-user" ></span> Sign Up</a></li>
+                <li><a href="{% url 'login' %}" ><span class="glyphicon glyphicon-user" ></span>Login</a></li>
             </ul> 
         </div>
         <!-- <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">

@@ -5,6 +5,7 @@ from django.db import models
 class Usuario(models.Model):
     correo = models.CharField(max_length = 100)
     contra = models.CharField(max_length = 100)
+    username = models.CharField(max_length = 100)
     rut =  models.CharField(max_length = 100)
     nacionalidad =  models.CharField(max_length = 100)
     nombre =  models.CharField(max_length = 100)

@@ -20,14 +20,14 @@
                 <a class="navbar-brand" href="#">IT-FAIR</a>
             </div>
             <ul class="nav navbar-nav">
-                <li><a href="/registro/templates/Home.html">Home</a></li>
-                <li><a href="/registro/templates/Service.html">Services</a></li>
-                <li><a href="/registro/templates/tourism.html">Tourism</a></li>
-                <li><a href="/registro/templates/contact.html">Contact Us</a></li>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'service' %}">Services</a></li>
+                <li><a href="{% url 'tourism' %}">Tourism</a></li>
+                <li><a href="{% url 'contact' %}">Contact Us</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="/registro/templates/singup.html"><span class="glyphicon glyphicon-user" ></span> Sign Up</a></li>
-                <li><a href="/registro/templates/login.html"><span class="glyphicon glyphicon-user" ></span>Login</a></li>
+                <li><a href="{% url 'singup' %}"><span class="glyphicon glyphicon-user" ></span> Sign Up</a></li>
+                <li><a href="{% url 'login' %}" ><span class="glyphicon glyphicon-user" ></span>Login</a></li>
             </ul> 
         </div>
     <!-- <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
@@ -54,12 +54,15 @@
     </div>
 
 <!--Registro-->    
-<form  name="form1" action="/registro/crear" style="border:1px solid #ccc" method="POST">
+<form  name="form1" action="/login/iniciar" style="border:1px solid #ccc" method="POST">
     {% csrf_token %}
     <div class="container">
 
         <label for="dni"><b>DNI -- N° Pasaport</b></label>
         <input type="number"class="form-control" placeholder="Enter DNI or Number Pasaport" name="dni" id="dni" required>
+
+        <label for="username">Username</label>
+        <input type="text"class="form-control" placeholder="Enter Username" name="username" required>
 
         <label for="name"><b>Name *</b></label>
         <input type="text" placeholder="Enter Name" name="name" id="nom" required>
