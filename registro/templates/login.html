@@ -13,18 +13,18 @@
     <title>LOGIN</title>
 </head>
 <body>
-    <form method="POST" class="form-signin" action="{% url "iniciar" %}">
+    <form method="POST" class="form-signin" action="{% url 'iniciar' %}">
             {% csrf_token %}
             <div class="form-row">
                 <div class="col">
                     <label for="inputRut"  class="sr-only">DNI -- N° Pasaport</label>
-                    <input type="text" id="inputRut" name="rut" class="form-control" placeholder="DNI -- N° Pasaport" required autofocus> 
+                    <input type="text" id="inputRut" name="username" class="form-control" placeholder="DNI -- N° Pasaport" required autofocus> 
                 </div>
               </div>
             <div class="form-row">
                 <div class="col">
                     <label for="inputPassword" class="sr-only">Contraseña</label>
-                    <input type="password" name="contrasenia" id="inputPassword" class="form-control" placeholder="Password" required>
+                    <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
                 </div>
             </div>
         <br>
