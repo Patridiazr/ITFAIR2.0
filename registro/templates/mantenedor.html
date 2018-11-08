@@ -1,0 +1,128 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}"> 
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %} ">
+    <link rel="stylesheet" href="{% static 'css/flexboxgrid.css' %} ">
+    <link rel="stylesheet" href="{% static 'css/estilo.css' %} ">
+    <script src="../static/"></script>
+    <title>Services</title>
+  </head>
+  <body>
+    <!---------------------------- BARRA DE NAVEGACION ------------------------>
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+          <div class="navbar-header">
+              <a class="navbar-brand" href="#">IT-FAIR</a>
+          </div>
+          <ul class="nav navbar-nav">
+              <li><a href="/registro/templates/Home.html">Home</a></li>
+              <li><a href="/registro/templates/Service.html">Services</a></li>
+              <li><a href="/registro/templates/tourism.html">Tourism</a></li>
+              <li><a href="/registro/templates/contact.html">Contact Us</a></li>
+              {%  if user.is_superuser % }
+              <li><a href="/registro/templates/mantenedor.html">Mantenedor</a> </li>
+              {%  endif % }
+          </ul>
+          <ul class="nav navbar-nav navbar-form">
+              <div id="google_translate_element"></div><script type="text/javascript">
+                function googleTranslateElementInit() {
+                  new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, multilanguagePage: true}, 'google_translate_element');
+                }
+                </script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+              <li><a href="/registro/templates/singup.html"><span class="glyphicon glyphicon-user" ></span> Sign Up</a></li>
+              <li><a href="/registro/templates/login.html" ><span class="glyphicon glyphicon-user" ></span> Login</a></li>
+          </ul> 
+
+ <ul>
+    <h3>Lista de usuarios registrados</h3>
+
+    <table class="table table-bordered"></table>
+    <thead>
+        <tbody>
+
+          <tbody>
+            {% if usuario %}
+            {% for p in usuario %}
+            
+            <tr>
+              <td>{{ u.dni }}</td>
+              <td>{{ u.username }}</td>
+              <td>{{ u.nom}} </td>
+              <td>{{ u.nationality }}</td>
+              <td>{{ u.ema }}</td>
+              <td>{{ u.psw }}</td>  
+              <td> 
+                  <a class="btn btn-primary" href="/registro/mantenedor/{{p.id}}">Editar</a>
+                  <a class="btn btn-danger" href="#openModal">Eliminar</a>
+
+
+              </td>
+              <div id="openModal" class="modalDialog">
+                      <div>
+                          <a href="#close" title="Close" class="close">X</a>
+                          
+                          <form action="/registro/mantenedor/{{p.id}}" method="POST" >
+                              {% csrf_token %}
+                              <h4>¿Esta seguro de eliminar este usuario?</h4>
+                              <button class="btm btn-danger"  type="submit">Si, eliminar</button>
+                              <a class="btn btn-default" href="mantenedor.html">Cancelar</a>
+          
+                          </form>
+                          
+                          
+                      </div>
+                  </div>
+              
+              
+            </tr>
+            
+            {% endfor %}
+            {% else %}
+            <h1>No hay registros</h1>
+            {% endif %}
+
+          </tbody>
+      </table>
+
+ </ul>         
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+  <footer class="footer">
+    <div style="text-align: center">
+        <p style="color:grey" >Copyright &copy 2018 All Rights Reserved.</p>
+        <div>
+            <a href="https://www.facebook.com"><i class="fa fa-facebook" ></i></a>
+            <a href="#"><i class="fa fa-instagram"></i></a>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+            <a href="#"><i class="fa fa-google-plus"></i></a> 
+        </div>
+    </div>
+  </footer>
+    
+
+  <script src="{% static 'js/jquery-3.3.1.js' %}"></script>
+<script src="{% static 'js/bootstrap.js' %} "></script>
+<script src="{% static 'js/app.js' %} "></script>   
+<script src="{% static 'js/validar.js' %} "></script>
+  </body>
+</html>

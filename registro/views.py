@@ -65,3 +65,16 @@ def login_iniciar(request):
 def logout_view(request):
     logout(request)
     return redirect('login')
+    
+
+
+def eliminar_U(request, id_p):
+    usuario = Usuario.objects.get(id=id_p)
+    usuario.delete()
+    return redirect('mantenedor')
+
+def listado(request):
+    usuario = Usuario.objects.all()
+    contexto = {'usuario': usuario}
+    return render (request, 'mantenedor.html', contexto)   
+
