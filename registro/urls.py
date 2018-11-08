@@ -1,7 +1,7 @@
 from django.urls import path 
 from . import views
 from django.shortcuts import render
-from django.http import HttpResponse
+
 #importar user
 from django.contrib.auth.models import User
 #sistema de autenticación 
@@ -15,7 +15,7 @@ urlpatterns =[
     path('registro/templates/Service.html',views.servise,name="service"),
     path('registro/templates/tourism.html',views.tourism,name="tourism"),
     path('registro/templates/singup.html',views.singup, name="singup"),
-    path('registro/templates/login.html',views.login, name="login"),
+    path('registro/login.html',views.login, name="login"),
     path(r'^login/iniciar/$',views.login_iniciar,name="iniciar"),
     path('registro/crear', views.crear_U, name="crear")
 

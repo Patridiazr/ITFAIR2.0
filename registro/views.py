@@ -1,6 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Usuario, Mensaje
-from django.shortcuts import redirect
+from django.contrib.auth import authenticate
+from django.http import HttpResponse
+
 
 # Create your views here.
 
@@ -31,7 +33,7 @@ def crear_U(request):
     nacionalidad = request.POST.get('nationality')
     usu = Usuario(correo=correo, contra=contra, rut=rut, nombre=nombre, nacionalidad=nacionalidad)
     usu.save()
-    return redirect('login')
+    return redirect('login.html')
 
 def crear_M(request):
     correo = request.POST.get('')
@@ -51,4 +53,4 @@ def login_iniciar(request):
         auth_login(request, user)
         return HttpResponse('<script>alert("Inicio de sesión correcto."); window.location.href="/index/";</script>')
     else:
-        return HttpResponse('<script>alert("Ocurrió un error, intenta nuevamente..."); window.location.href="/login/";</script>')
+        return HttpResponse('<script>alert("Ocurrió un error, intenta nuevamente..."); window.location.href="/registro/login.html";</script>')
