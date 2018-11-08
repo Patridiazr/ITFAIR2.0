@@ -45,15 +45,18 @@
                       {% endif %}
                     </ul> 
                 </div>
-    <h3>Lista de usuarios registrados</h3>
+    <h3 class="blanco" >Lista de usuarios registrados</h3>
 
     <table class="table table-bordered">
             <thead>
                     <tr>
-                            <td>Nombre</td>
-                            <td>Nombre de usuario</td>
-                            <td>Email</td>
-                            <td>Contraseña</td>
+                            <td class="blanco">Nombre</td>
+                            <td class="blanco">Nombre de usuario</td>
+                            <td class="blanco">Email</td>
+                            <td class="blanco">Contraseña</td>
+                            <td class="blanco">Acciones</td>
+
+                            
                         </tr>
             </thead>
                     <tbody>
@@ -65,10 +68,10 @@
                         <tr>
                           
                           
-                          <td>{{ u.nombre}} </td>
-                          <td>{{ u.username }}</td>              
-                          <td>{{ u.correo }}</td>
-                          <td>{{ u.contraseña }}</td>  
+                          <td class="blanco">{{ u.nombre}} </td>
+                          <td class="blanco">{{ u.username }}</td>              
+                          <td class="blanco">{{ u.correo }}</td>
+                          <td class="blanco">{{ u.contraseña }}</td>  
                           <td> 
                               
                               <a class="btn btn-danger" href="#openModal">Eliminar</a>
