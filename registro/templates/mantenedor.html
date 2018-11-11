@@ -16,122 +16,242 @@
   <body>
     <!---------------------------- BARRA DE NAVEGACION ------------------------>
     <nav class="navbar navbar-inverse">
-            <div class="container-fluid">
-                    <div class="navbar-header">
-                        <a class="navbar-brand" href="#">IT-FAIR</a>
-                    </div>
-                    <ul class="nav navbar-nav">
-                        <li><a href="{% url 'home' %}">Home</a></li>
-                        <li><a href="{% url 'service' %}">Services</a></li>
-                        <li><a href="{% url 'tourism' %}">Tourism</a></li>
-                        <li><a href="{% url 'contact' %}">Contact Us</a></li>
-                        
-                    </ul>
-                    <ul class="nav navbar-nav navbar-form">
-                      <div id="google_translate_element"></div><script type="text/javascript">
-                        function googleTranslateElementInit() {
-                          new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, multilanguagePage: true}, 'google_translate_element');
-                        }
-                        </script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-        
-                  </ul>
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">IT-FAIR</a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li><a href="{% url 'home' %}">Home</a></li>
+          <li><a href="{% url 'service' %}">Services</a></li>
+          <li><a href="{% url 'tourism' %}">Tourism</a></li>
+          <li><a href="{% url 'contact' %}">Contact Us</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-form">
+          <div id="google_translate_element"></div><script type="text/javascript">
+            function googleTranslateElementInit() {
+              new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, multilanguagePage: true}, 'google_translate_element');
+            }
+            </script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+        </ul>
                     
-                    <ul class="nav navbar-nav navbar-right">
-                      {% if not user.is_authenticated %}
-                        <li><a href="{% url 'singup' %}"><span class="glyphicon glyphicon-user" ></span> Sign Up</a></li>
-                        <li><a href="{% url 'login' %}" ><span class="glyphicon glyphicon-user" ></span>Login</a></li>
-                      {% else %}
-                        <li><a href="{% url 'logout' %}"><span class="glyphicon glyphicon-user" ></span>Logout</a></li>
-                      {% endif %}
-                    </ul> 
-                </div>
+        <ul class="nav navbar-nav navbar-right">
+          {% if not user.is_authenticated %}
+            <li><a href="{% url 'singup' %}"><span class="glyphicon glyphicon-user" ></span> Sign Up</a></li>
+            <li><a href="{% url 'login' %}" ><span class="glyphicon glyphicon-user" ></span>Login</a></li>
+          {% else %}
+            <li><a href="{% url 'logout' %}"><span class="glyphicon glyphicon-user" ></span>Logout</a></li>
+          {% endif %}
+        </ul> 
+      </div>
     <h3>Lista de usuarios registrados</h3>
 
     <table class="table table-bordered">
-            <thead>
-                    <tr>
-                            <td>Nombre</td>
-                            <td>Nombre de usuario</td>
-                            <td>Email</td>
-                            <td>Contraseña</td>
-                        </tr>
-            </thead>
-                    <tbody>
-            
-                      
-                        {% if usuario %}
-                        {% for u in usuario %}
-                        
-                        <tr>
-                          
-                          
-                          <td>{{ u.nombre}} </td>
-                          <td>{{ u.username }}</td>              
-                          <td>{{ u.correo }}</td>
-                          <td>{{ u.contraseña }}</td>  
-                          <td> 
-                              
-                              <a class="btn btn-danger" href="#openModal">Eliminar</a>
-            
-            
-                          </td>
-                          <div id="openModal" class="modalDialog">
-                                  <div>
-                                      <a href="#close" title="Close" class="close">X</a>                                      
-                                      <form action="eliminar/{{u.id}}" method="POST" >
-                                          {% csrf_token %}
-                                          <h4>¿Esta seguro de eliminar este usuario?</h4>
-                                          <button class="btm btn-danger"  type="submit">Si, eliminar</button>
-                                          <a class="btn btn-default" href="{% url 'mantenedor' %}">Cancelar</a>                      
-                                      </form>
-                                      
-                                      
-                                  </div>
-                              </div>
-                          
-                          
-                        </tr>
-                        
-                        {% endfor %}
-                        {% else %}
-                        <h1>No hay registros</h1>
-                        {% endif %}
-            
-                      </tbody>
-    
-    
-      </table>
+      <thead>
+        <tr>
+          <td>Nombre</td>
+          <td>Nombre de usuario</td>
+          <td>Email</td>
+          <td>Contraseña</td>
+        </tr>
+      </thead>
+      <tbody>  
+        {% if usuario %}
+        {% for u in usuario %}        
+        <tr>
+          <td>{{ u.nombre}} </td>
+          <td>{{ u.username }}</td>              
+          <td>{{ u.correo }}</td>
+          <td>{{ u.contraseña }}</td>  
+          <td><a class="btn btn-danger" href="#openModalU">Eliminar</a></td>
+          <div id="openModalU" class="modalDialog">
+            <div>
+              <a href="#close" title="Close" class="close">X</a>                                      
+              <form action="eliminarU/{{u.id}}" method="POST" >
+                {% csrf_token %}
+                <h4>¿Esta seguro de eliminar este usuario?</h4>
+                <button class="btm btn-danger"  type="submit">Si, eliminar</button>
+               <a class="btn btn-default" href="{% url 'mantenedor' %}">Cancelar</a>                      
+              </form>
+            </div>
+          </div>   
+        </tr>          
+        {% endfor %}
+        {% else %}
+        <h1>No hay registros</h1>
+        {% endif %}           
+      </tbody>    
+    </table>
 
- </ul>         
+    <h3>Lista de luagares turisticos</h3>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+        <td>Titulo</td>
+        <td>Foto</td>
+        <td>Descripcion</td>
+        </tr>
+      </thead>
+      <tbody>
+      {% if turistico %}
+      {% for t in turistico %}
+      <td>{{t.titulo}}</td>
+      <td>{{t.foto}}</td>
+      <td>{{t.descripcion}}</td>
+      <td>
+        <a class="btn btn-danger" href="#openModalT1">Editar</a>
+        <a class="btn btn-danger" href="#openModalT2">Eliminar</a>
+      </td>
+      <div id="openModalT1" class="modalDialog">
+        <div>
+          <a href="#close" title="Close" class="close">X</a>                                      
+          <form action="editarT/{{t.id}}" method="POST" >
+            {% csrf_token %}
+            <h4>Editor</h4>
+            <label for="Titulo"><b>Titulo</b></label>
+            <input type="text" name="titulo" id="titulo" placeholder={{t.titulo}}>
+            <label for="Foto">Foto</label>
+            <input type="file" name="foto" id="foto">
+            <label for="Descripcion">Descripcion</label>
+            <input type="text" name="descripcion" id="descripcion" placeholder={{t.descripcion}}>
+            <button class="btm btn-danger"  type="submit">Editar</button>
+            <a class="btn btn-default" href="{% url 'mantenedor' %}">Cancelar</a>                      
+          </form>
+        </div>
+      </div>
+      <div id="openModalT2" class="modalDialog">
+        <div>
+          <a href="#close" title="Close" class="close">X</a>                                      
+          <form action="eliminarT/{{t.id}}" method="POST" >
+            {% csrf_token %}
+            <h4>¿Esta seguro de eliminar este lugar turistico?</h4>
+            <button class="btm btn-danger"  type="submit">Si, eliminar</button>
+            <a class="btn btn-default" href="{% url 'mantenedor' %}">Cancelar</a>                      
+          </form>
+        </div>
+      </div>
+      {% endfor %}
+      {% else %}
+        <h1>No hay registros</h1>
+      {% endif %}
+      </tbody>
+    </table>
+    <button><a href="#openModalTA"></a>Agregar</button>
 
+    <h3>Listado Servicios</h3>
+    <table class="table table-bordered">
+      <thead>
+        <td>Nombre</td>
+        <td>Titulo</td>
+        <td>link</td>
+        <td>Descripcion1</td>
+        <td>Descripcion2</td>
+      </thead>
+      <tbody>
+        {% if servicios %}
+        {% for s in servicios %}
+        <td>{{s.nombre}}</td>
+        <td>{{s.titulo}}</td>
+        <td>{{s.link}}</td>
+        <td>{{s.downl}}</td>
+        <td>{{s.descripcion}}</td>
+        <td>
+            <a class="btn btn-danger" href="#openModalS1">Editar</a>
+            <a class="btn btn-danger" href="#openModalS2">Eliminar</a>
+        </td>
+        <div id="openModalS1" class="modalDialog">
+            <div>
+              <a href="#close" title="Close" class="close">X</a>                                      
+              <form action="editarS/{{s.id}}" method="POST" >
+                {% csrf_token %}
+                <h4>Editor</h4>
+                <label for="Nombre">Nombre</label>
+                <input type="text" name="nombre" id="nombre" placeholder={{s.nombre}}>
+                <label for="Titulo"><b>Titulo</b></label>
+                <input type="text" name="titulo" id="titulo" placeholder={{s.titulo}}>
+                <label for="Link">Link</label>
+                <input type="text" name="link" id="link" placeholder={{s.link}}>
+                <label for="descripcion1">Descripcion1</label>
+                <input type="text" name="descripcion1" id="descripcion1" placeholder={{s.downl}}>
+                <label for="Descripcion2">Descripcion2</label>
+                <input type="text" name="descripcion2" id="descripcion2" placeholder={{s.descripcion}}>
+                <button class="btm btn-danger"  type="submit">Editar</button>
+                <a class="btn btn-default" href="{% url 'mantenedor' %}">Cancelar</a>                      
+              </form>
+            </div>
+          </div>
+          <div id="openModalS2" class="modalDialog">
+            <div>
+              <a href="#close" title="Close" class="close">X</a>                                      
+              <form action="eliminarS/{{s.id}}" method="POST" >
+                {% csrf_token %}
+                <h4>¿Esta seguro de eliminar este servicio?</h4>
+                <button class="btm btn-danger"  type="submit">Si, eliminar</button>
+                <a class="btn btn-default" href="{% url 'mantenedor' %}">Cancelar</a>                      
+              </form>
+            </div>
+          </div>
+        {% endfor %}
+        {% else %}
+        {% endif %}
+      </tbody>
+    </table>
+    <button><a href="#openModalSA"></a></button>
 
+    <div id="openModalTA" class="modalDialog">
+      <div>
+        <a href="#close" title="Close" class="close">X</a>                                      
+        <form action="mantenedor/agregarT" method="POST" >
+          {% csrf_token %}
+          <h4>Agregar lugar Turistico</h4>
+          <label for="Titulo"><b>Titulo</b></label>
+          <input type="text" name="titulo" id="titulo" placeholder="Ingrese titulo">
+          <label for="Foto">Foto</label>
+          <input type="file" name="foto" id="foto">
+        <label for="Descripcion">Descripcion</label>
+          <input type="text" name="descripcion" id="descripcion" placeholder="Ingrese descripcion">
+          <button class="btm btn-danger"  type="submit">Agregar</button>
+          <a class="btn btn-default" href="{% url 'mantenedor' %}">Cancelar</a>                      
+         </form>
+      </div>
+    </div>
 
+    <div id="openModalSA" class="modalDialog">
+      <div>
+        <a href="#close" title="Close" class="close">X</a>                                      
+        <form action="mantenedor/agregarS" method="POST" >
+          {% csrf_token %}
+          <h4>Agregar lugar Turistico</h4>
+          <label for="Nombre">Nombre</label>
+          <input type="text" name="nombre" id="nombre">
+          <label for="Titulo"><b>Titulo</b></label>
+          <input type="text" name="titulo" id="titulo" placeholder="Ingrese titulo">
+          <label for="Link">Link</label>
+          <input type="text" name="link" id="link">
+          <label for="descripcion1">Descripcion1</label>
+          <input type="text" name="descripcion1" id="descripcion1">
+          <label for="Descripcion2">Descripcion2</label>
+          <input type="text" name="descripcion2" id="descripcion2" placeholder="Ingrese descripcion">
+          <button class="btm btn-danger"  type="submit">Agregar</button>
+          <a class="btn btn-default" href="{% url 'mantenedor' %}">Cancelar</a>                      
+        </form>
+      </div>
+    </div>
 
-
-
-
-
-
-
-
- 
-
-  <footer class="footer">
-    <div style="text-align: center">
+    <footer class="footer">
+      <div style="text-align: center">
         <p style="color:grey" >Copyright &copy 2018 All Rights Reserved.</p>
         <div>
-            <a href="https://www.facebook.com"><i class="fa fa-facebook" ></i></a>
-            <a href="#"><i class="fa fa-instagram"></i></a>
-            <a href="#"><i class="fa fa-twitter"></i></a>
-            <a href="#"><i class="fa fa-google-plus"></i></a> 
+          <a href="https://www.facebook.com"><i class="fa fa-facebook" ></i></a>
+          <a href="#"><i class="fa fa-instagram"></i></a>
+          <a href="#"><i class="fa fa-twitter"></i></a>
+          <a href="#"><i class="fa fa-google-plus"></i></a> 
         </div>
-    </div>
-  </footer>
-    
+      </div>
+    </footer>
 
-  <script src="{% static 'js/jquery-3.3.1.js' %}"></script>
-<script src="{% static 'js/bootstrap.js' %} "></script>
-<script src="{% static 'js/app.js' %} "></script>   
-<script src="{% static 'js/validar.js' %} "></script>
+    <script src="{% static 'js/jquery-3.3.1.js' %}"></script>
+    <script src="{% static 'js/bootstrap.js' %} "></script>
+    <script src="{% static 'js/app.js' %} "></script>   
+    <script src="{% static 'js/validar.js' %} "></script>
   </body>
 </html>

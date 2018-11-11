@@ -15,3 +15,16 @@ class Mensaje(models.Model):
     orga = models.CharField(max_length = 100)
     mensaje = models.CharField(max_length = 100)
     celu = models.IntegerField()
+
+
+class Turistico(models.Model):
+    titulo = models.CharField(max_length = 100)    
+    foto = models.ImageField()
+    descripcion = models.CharField(max_length = 500)    
+
+class Servicios(models.Model):
+    nombre = models.CharField(max_length = 100) 
+    titulo = models.CharField(max_length = 100)    
+    link = models.CharField(max_length = 100)    
+    downl = models.CharField(max_length = 100)    
+    descripcion = models.CharField(max_length = 100)
