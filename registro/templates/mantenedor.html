@@ -43,26 +43,27 @@
           {% endif %}
         </ul> 
       </div>
-    <h3>Lista de usuarios registrados</h3>
+    <h1>Listado usuarios registrados</h1>
 
-    <table class="table table-bordered">
+    <table class="table table-bordered bn">
       <thead>
         <tr>
-          <td>Nombre</td>
-          <td>Nombre de usuario</td>
-          <td>Email</td>
-          <td>Contraseña</td>
+          <td class="blanco">Nombre</td>
+          <td >Nombre de usuario</td>
+          <td >Email</td>
+          <td >Contraseña</td>
+          <td>Acciones</td>
         </tr>
       </thead>
       <tbody>  
         {% if usuario %}
         {% for u in usuario %}        
         <tr>
-          <td>{{ u.nombre}} </td>
-          <td>{{ u.username }}</td>              
-          <td>{{ u.correo }}</td>
-          <td>{{ u.contraseña }}</td>  
-          <td><a class="btn btn-danger" href="#openModalU">Eliminar</a></td>
+          <td >{{ u.nombre}} </td>
+          <td >{{ u.username }}</td>              
+          <td >{{ u.correo }}</td>
+          <td >{{ u.contraseña }}</td>  
+          <td ><a class="btn btn-danger" href="#openModalU">Eliminar</a></td>
           <div id="openModalU" class="modalDialog">
             <div>
               <a href="#close" title="Close" class="close">X</a>                                      
@@ -77,18 +78,19 @@
         </tr>          
         {% endfor %}
         {% else %}
-        <h1>No hay registros</h1>
+        <h2>No hay registros</h2>
         {% endif %}           
       </tbody>    
     </table>
 
-    <h3>Lista de luagares turisticos</h3>
+    <h1>Listado lugares turisticos</h1>
     <table class="table table-bordered">
       <thead>
         <tr>
         <td>Titulo</td>
         <td>Foto</td>
         <td>Descripcion</td>
+        <td>Acciones</td>
         </tr>
       </thead>
       <tbody>
@@ -131,13 +133,13 @@
       </div>
       {% endfor %}
       {% else %}
-        <h1>No hay registros</h1>
+        <h2>No hay registros</h2>
       {% endif %}
       </tbody>
     </table>
     <button><a href="#openModalTA"></a>Agregar</button>
 
-    <h3>Listado Servicios</h3>
+    <h1>Listado Servicios</h1>
     <table class="table table-bordered">
       <thead>
         <td>Nombre</td>
@@ -145,6 +147,7 @@
         <td>link</td>
         <td>Descripcion1</td>
         <td>Descripcion2</td>
+        <td>Acciones</td>
       </thead>
       <tbody>
         {% if servicios %}
@@ -192,10 +195,11 @@
           </div>
         {% endfor %}
         {% else %}
+        <h2>No hay registros</h2>
         {% endif %}
       </tbody>
     </table>
-    <button><a href="#openModalSA"></a></button>
+    <button><a href="#openModalSA"></a>Agregar</button>
 
     <div id="openModalTA" class="modalDialog">
       <div>
