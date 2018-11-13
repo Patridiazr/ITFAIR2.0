@@ -1,5 +1,7 @@
 from django.urls import path 
 from . import views
+from django.conf import settings
+from django.conf.urls.static import static
 from django.shortcuts import render
 
 #importar user
@@ -7,6 +9,8 @@ from django.contrib.auth.models import User
 #sistema de autenticación 
 from django.contrib.auth import authenticate,logout,login 
 from django.contrib.auth.decorators import login_required
+
+
 
 urlpatterns =[
     path('',views.home,name="home"),
@@ -25,7 +29,6 @@ urlpatterns =[
     path('mantenedor/eliminarT/<int:id_u>', views.eliminar_T, name="eliminarT"),
     path('mantenedor/agregarS',views.crear_S, name="agregarS"),
     path('mantenedor/editarS/<int:id_s>',views.editar_S, name="editarS"),
-    path('mantenedor/eliminarS/<int:id_u>', views.eliminar_S, name="eliminarS")
+    path('mantenedor/eliminarS/<int:id_u>', views.eliminar_S, name="eliminarS")        
     
-
-]
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

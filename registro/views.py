@@ -83,9 +83,9 @@ def crear_M(request):
 #CRUD TURISTICO
 
 def crear_T(request):
-    titulo = request.Post.get('titulo')
-    foto  = request.Post.get('foto')
-    descripcion  = request.Post.get('descripcion')
+    titulo = request.POST.get('titulo')
+    foto  = request.FILES.get('foto', False)
+    descripcion  = request.POST.get('descripcion')
     tur = Turistico(titulo=titulo, foto=foto, descripcion=descripcion)
     tur.save()
     return redirect('mantenedor')

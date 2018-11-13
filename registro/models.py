@@ -19,7 +19,7 @@ class Mensaje(models.Model):
 
 class Turistico(models.Model):
     titulo = models.CharField(max_length = 100)    
-    foto = models.ImageField()
+    foto = models.ImageField(upload_to='fotos/')
     descripcion = models.CharField(max_length = 500)    
 
 class Servicios(models.Model):

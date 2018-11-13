@@ -97,7 +97,7 @@
       {% if turistico %}
       {% for t in turistico %}
       <td>{{t.titulo}}</td>
-      <td>{{t.foto}}</td>
+      <td><img src="/Imagenes/{{t.foto}}" alt="no foto" height="100" srcset=""></td>
       <td>{{t.descripcion}}</td>
       <td>
         <a class="btn btn-danger" href="#openModalT1">Editar</a>
@@ -137,8 +137,24 @@
       {% endif %}
       </tbody>
     </table>
-    <button><a href="#openModalTA"></a>Agregar</button>
-
+    <div id="openModalTA" class="modalDialog">
+        <div>
+          <a href="#close" title="Close" class="close">X</a>                                      
+          <form action="agregarT" method="POST" >
+            {% csrf_token %}
+            <h4>Agregar lugar Turistico</h4>
+            <label for="Titulo"><b>Titulo</b></label>
+            <input type="text" name="titulo" id="titulo" placeholder="Ingrese titulo">
+            <label for="Foto">Foto</label>
+            <input type="file" name="foto" id="foto">
+          <label for="Descripcion">Descripcion</label>
+            <input type="text" name="descripcion" id="descripcion" placeholder="Ingrese descripcion">
+            <button class="btm btn-danger"  type="submit">Agregar</button>
+            <a class="btn btn-default" href="{% url 'mantenedor' %}">Cancelar</a>                      
+           </form>
+        </div>
+      </div>
+      <a class="btn btn-default" href="#openModalTA" style="background-color: #5eb762">Agregar</a>
     <h1>Listado Servicios</h1>
     <table class="table table-bordered">
       <thead>
@@ -224,7 +240,7 @@
         <a href="#close" title="Close" class="close">X</a>                                      
         <form action="mantenedor/agregarS" method="POST" >
           {% csrf_token %}
-          <h4>Agregar lugar Turistico</h4>
+          <h4>Agregar servicio</h4>
           <label for="Nombre">Nombre</label>
           <input type="text" name="nombre" id="nombre">
           <label for="Titulo"><b>Titulo</b></label>
