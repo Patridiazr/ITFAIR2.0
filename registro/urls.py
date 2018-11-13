@@ -26,9 +26,9 @@ urlpatterns =[
     path('mantenedor/eliminarU/<int:id_u>', views.eliminar_U, name="eliminarU"),
     path('mantenedor/agregarT',views.crear_T, name="agregarT"),
     path('mantenedor/editarT/<int:id_t>',views.editar_T, name="editarT"),
-    path('mantenedor/eliminarT/<int:id_u>', views.eliminar_T, name="eliminarT"),
+    path('mantenedor/eliminarT/<int:id_t>', views.eliminar_T, name="eliminarT"),
     path('mantenedor/agregarS',views.crear_S, name="agregarS"),
     path('mantenedor/editarS/<int:id_s>',views.editar_S, name="editarS"),
-    path('mantenedor/eliminarS/<int:id_u>', views.eliminar_S, name="eliminarS")        
+    path('mantenedor/eliminarS/<int:id_s>', views.eliminar_S, name="eliminarS")        
     
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

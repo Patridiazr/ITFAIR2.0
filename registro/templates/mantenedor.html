@@ -88,39 +88,28 @@
     <table class="table table-bordered" >
       <thead>
         <tr>
-        <td>Titulo</td>
-        <td>Foto</td>
-        <td>Descripcion</td>
-        <td>Acciones</td>
+          <td>Titulo</td>
+          <td>Subtitulo</td>
+          <td>Foto</td>
+          <td>Descripcion</td>
+          <td>Acciones</td>
         </tr>
       </thead>
       <tbody>
-      {% if turistico %}
-      {% for t in turistico %}
-      <td>{{t.titulo}}</td>
-      <td><img src="/Imagenes/{{t.foto}}" alt="no foto" height="100" srcset=""></td>
-      <td>{{t.descripcion}}</td>
-      <td>
-        <a class="btn btn-danger" href="#openModalT1">Editar</a>
-        <a class="btn btn-danger" href="#openModalT2">Eliminar</a>
-      </td>
-      <div id="openModalT1" class="modalDialog">
-        <div>
-          <a href="#close" title="Close" class="close">X</a>                                      
-          <form action="editarT/{{t.id}}" method="POST" >
-            {% csrf_token %}
-            <h4>Editor</h4>
-            <label for="Titulo"><b>Titulo</b></label>
-            <input type="text" name="titulo" id="titulo" placeholder={{t.titulo}}>
-            <label for="Foto">Foto</label>
-            <input type="file" name="foto" id="foto">
-            <label for="Descripcion">Descripcion</label>
-            <input type="text" name="descripcion" id="descripcion" placeholder={{t.descripcion}}>
-            <button class="btm btn-danger"  type="submit">Editar</button>
-            <a class="btn btn-default" href="{% url 'mantenedor' %}">Cancelar</a>                      
-          </form>
-        </div>
-      </div>
+
+        <tr>
+            {% if turistico %}
+            {% for t in turistico %}
+            <td>{{t.titulo}}</td>
+            <td>{{t.subtitulo}}</td>
+            <td><img src="/media/{{t.foto}}" alt="no foto" height="100" srcset=""></td>
+            <td>{{t.descripcion}}</td>
+            <td>
+              <a class="btn btn-danger" href="#openModalT1">Editar</a>
+              <a class="btn btn-danger" href="#openModalT2">Eliminar</a>
+            </td>
+        </tr>
+      
       <div id="openModalT2" class="modalDialog">
         <div>
           <a href="#close" title="Close" class="close">X</a>                                      
@@ -137,51 +126,34 @@
         <h2>No hay registros</h2>
       {% endif %}
       </tbody>
-    </table>
-    <div id="openModalTA" class="modalDialog">
-        <div>
-          <a href="#close" title="Close" class="close">X</a>                                      
-          <form action="agregarT" method="POST" >
-            {% csrf_token %}
-            <h4>Agregar lugar Turistico</h4>
-            <label for="Titulo"><b>Titulo</b></label>
-            <input type="text" name="titulo" id="titulo" placeholder="Ingrese titulo">
-            <label for="Foto">Foto</label>
-            <input type="file" name="foto" id="foto">
-          <label for="Descripcion">Descripcion</label>
-            <input type="text" name="descripcion" id="descripcion" placeholder="Ingrese descripcion">
-            <button class="btm btn-danger"  type="submit">Agregar</button>
-            <a class="btn btn-default" href="{% url 'mantenedor' %}">Cancelar</a>                      
-           </form>
-        </div>
-      </div>
-      <a class="btn btn-default" href="#openModalTA" style="background-color: #5eb762">Agregar</a>
-    <h1>Listado Servicios</h1>
-    <table class="table table-bordered">
-    <button><a href="#openModalTA"></a>Agregar</button>
-
+    </table>   
+    <a class="btn btn-default" href="#openModalTA" style="background-color: #5eb762">Agregar</a>   
     <h1 style="color: black">Listado Servicios</h1>
     <table class="table table-bordered" >
       <thead>
         <td>Nombre</td>
         <td>Titulo</td>
-        <td>link</td>
+        <td>Archivo</td>
         <td>Descripcion1</td>
         <td>Descripcion2</td>
         <td>Acciones</td>
       </thead>
       <tbody>
-        {% if servicios %}
-        {% for s in servicios %}
-        <td>{{s.nombre}}</td>
-        <td>{{s.titulo}}</td>
-        <td>{{s.link}}</td>
-        <td>{{s.downl}}</td>
-        <td>{{s.descripcion}}</td>
-        <td>
+        <tr>
+          {% if servicios %}
+          {% for s in servicios %}
+          <td>{{s.nombre}}</td>
+          <td>{{s.titulo}}</td>
+          <td>{{s.archivo}}</td>
+          <td>{{s.downl}}</td>
+          <td>{{s.descripcion}}</td>
+          <td>
             <a class="btn btn-danger" href="#openModalS1">Editar</a>
             <a class="btn btn-danger" href="#openModalS2">Eliminar</a>
-        </td>
+          </td>
+
+        </tr>
+
         <div id="openModalS1" class="modalDialog">
             <div>
               <a href="#close" title="Close" class="close">X</a>                                      
@@ -220,20 +192,25 @@
         {% endif %}
       </tbody>
     </table>
-    <button><a href="#openModalSA"></a>Agregar</button>
-
+    <a class="btn btn-default" href="#openModalSA" style="background-color: #5eb762">Agregar</a>
     <div id="openModalTA" class="modalDialog">
       <div>
         <a href="#close" title="Close" class="close">X</a>                                      
-        <form action="mantenedor/agregarT" method="POST" >
+        <form action="agregarT" method="POST" enctype="multipart/form-data" >
           {% csrf_token %}
           <h4>Agregar lugar Turistico</h4>
           <label for="Titulo"><b>Titulo</b></label>
           <input type="text" name="titulo" id="titulo" placeholder="Ingrese titulo">
+          
+          <label for="Subtitulo">Subtitulo</label>
+          <input type="text" name="subtitulo" id="subtitulo">
+
           <label for="Foto">Foto</label>
           <input type="file" name="foto" id="foto">
-        <label for="Descripcion">Descripcion</label>
+
+          <label for="Descripcion">Descripcion</label>
           <input type="text" name="descripcion" id="descripcion" placeholder="Ingrese descripcion">
+
           <button class="btm btn-danger"  type="submit">Agregar</button>
           <a class="btn btn-default" href="{% url 'mantenedor' %}">Cancelar</a>                      
          </form>
@@ -243,15 +220,15 @@
     <div id="openModalSA" class="modalDialog">
       <div>
         <a href="#close" title="Close" class="close">X</a>                                      
-        <form action="mantenedor/agregarS" method="POST" >
+        <form action="agregarS" method="POST" enctype="multipart/form-data" >
           {% csrf_token %}
           <h4>Agregar servicio</h4>
           <label for="Nombre">Nombre</label>
           <input type="text" name="nombre" id="nombre">
           <label for="Titulo"><b>Titulo</b></label>
           <input type="text" name="titulo" id="titulo" placeholder="Ingrese titulo">
-          <label for="Link">Link</label>
-          <input type="text" name="link" id="link">
+          <label for="Archivo">Archivo</label>
+          <input type="file" name="archivo" id="archivo">
           <label for="descripcion1">Descripcion1</label>
           <input type="text" name="descripcion1" id="descripcion1">
           <label for="Descripcion2">Descripcion2</label>

@@ -13,13 +13,17 @@ def home(request):
     return render(request,"home.html")
 
 def servise(request):
-    return render(request,"service.html")
+    ser = Servicios.objects.all()
+    context = {'servicios': ser}
+    return render(request,"service.html",context)
 
 def contact(request):
     return render(request,"contact.html")
 
 def tourism(request):
-    return render(request,"tourism.html")
+    tur = Turistico.objects.all()
+    context = {'turistico': tur}
+    return render(request,"tourism.html",context)
 
 def singup(request):
     return render(request,"singup.html")
@@ -27,8 +31,15 @@ def singup(request):
 def login(request):
     return render(request,"login.html")
 
-def mantenedor(request):
-    return render(request,"mantenedor.html")
+def listado(request):
+    usuario = Usuario.objects.all()
+    contexto3 = {'usuario': usuario}
+    turistico = Turistico.objects.all()
+    contexto1 = {'turistico':turistico}
+    servicios = Servicios.objects.all()
+    contexto2 = {'servicios':servicios}
+    contexto ={'usuario':usuario,'turistico':turistico,'servicios':servicios}
+    return render (request, 'mantenedor.html',contexto)   
     
 #LOGIN
 
@@ -84,9 +95,10 @@ def crear_M(request):
 
 def crear_T(request):
     titulo = request.POST.get('titulo')
+    subtitulo = request.POST.get('subtitulo')
     foto  = request.FILES.get('foto', False)
-    descripcion  = request.POST.get('descripcion')
-    tur = Turistico(titulo=titulo, foto=foto, descripcion=descripcion)
+    descripcion  = request.POST.get('descripcion')    
+    tur = Turistico(titulo=titulo, subtitulo=subtitulo, foto=foto, descripcion=descripcion)
     tur.save()
     return redirect('mantenedor')
 
@@ -102,19 +114,19 @@ def editar_T(request,id_t):
     return redirect('mantenedor')
 
 def eliminar_T(request, id_t):
-    tutistico = Tutistico.objects.get(id=id_t)
+    tutistico = Turistico.objects.get(id=id_t)
     tutistico.delete()
     return redirect('mantenedor')
 
 #CRUD SERVICIOS
 
 def crear_S(request):
-    nombre = request.Post.get('nombre')
-    titulo = request.Post.get('titulo')
-    link = request.Post.get('link')
-    downl = request.Post.get('downl')
-    descripcion = request.Post.get('descripcion')
-    ser=Servicios(nombre=nombre, titulo=titulo, link=link, downl=downl, descripcion=descripcion)
+    nombre = request.POST.get('nombre')
+    titulo = request.POST.get('titulo')
+    archivo = request.FILES.get('archivo')
+    downl = request.POST.get('descripcion1')
+    descripcion = request.POST.get('descripcion2')
+    ser=Servicios(nombre=nombre, titulo=titulo, archivo=archivo, downl=downl, descripcion=descripcion)
     ser.save()
     return redirect('mantenedor')
 
@@ -140,13 +152,5 @@ def eliminar_S(request, id_s):
 
 
 #++
-def listado(request):
-    usuario = Usuario.objects.all()
-    contexto3 = {'usuario': usuario}
-    turistico = Turistico.objects.all()
-    contexto1 = {'turistico':turistico}
-    servicios = Servicios.objects.all()
-    contexto2 = {'servicios':servicios}
-    contexto ={'usuario':usuario,'turistico':turistico,'servicios':servicios}
-    return render (request, 'mantenedor.html',contexto)   
+
 

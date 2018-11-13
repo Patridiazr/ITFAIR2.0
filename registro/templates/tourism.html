@@ -66,180 +66,31 @@
         of the best tourist places in Chile, spectacular scenery among
         the driest desert in the world, eternal ice, humid forests, vibrant cities and picturesque Altiplano towns.
     </h3>
-
     <ul class="galeria">
-        <li><a href="#tur1"><img src="/static/imagenes/tur1.jpg" alt="Santiago, Centro de Chile" srcset=""></a> </li>
-        <li><a href="#tur2"><img src="/static/imagenes/tur2.jpg" alt="San Pedro de Atacama. Norte de Chile" srcset=""></a> </li>
-        <li><a href="#tur3"><img src="/static/imagenes/tur3.jpg" alt="Parque Nacional Lauca. Norte de Chile" srcset=""></a> </li>
-        <li><a href="#tur4"><img src="/static/imagenes/tur4.jpg" alt="Iquique. Norte de Chile" srcset=""></a> </li>
-        <li><a href="#tur5"><img src="/static/imagenes/tur5.jpg" alt="Isla de Pascua. Centro de Chile" srcset=""></a> </li>
-        <li><a href="#tur6"><img src="/static/imagenes/tur6.jpg" alt="Valparaíso. Centro de Chile" srcset=""></a> </li>
-        <li><a href="#tur7"><img src="/static/imagenes/tur7.jpg" alt="Chiloé. Sur de Chile" srcset=""></a> </li>
-        <li><a href="#tur8"><img src="/static/imagenes/tur8.jpg" alt="Carretera Austral. Sur de Chile" srcset=""></a> </li>
-        <li><a href="#tur9"><img src="/static/imagenes/tur9.jpg" alt="Laguna San Rafael. Sur de Chile" srcset=""></a> </li>
-        <li><a href="#tur10"><img src="/static/imagenes/tur10.jpg" alt="Parque Nacional Torres del Paine. Sur de Chile" srcset=""></a> </li>
-    </ul>
-    <div class="fotos" id="tur1">
-        <h3>Santiago, Centro de Chile</h3>
-        <div class="imgs">
-            <a href="#tur10">&#60</a>
-            <a href=""><img src="/static/imagenes/tur1.jpg" alt="Santiago de Chile" srcset=""></a>
+        {% for tur in turistico %}
+        <li><a href="#{{tur.id}}"><img src="/media/{{tur.foto}}" alt={{tur.titulo}} srcset=""></a> </li>
+        {% endfor %}
+    </ul>   
+    {% if turistico %}
+    {% for tur in turistico %}
+    <div class="fotos" id="{{tur.id}}">
+        <h3>{{tur.titulo}}</h3>
+        <div class="imgs">            
+            <a href="#Close"><img src="/media/{{tur.foto}}" alt="no foto" height="100" srcset=""></a> 
             <div class="carousel-caption d-none d-md-block">                          
-                <h2 class="pp" >Parque Bicentenario en Santiago</h2>
-                <p class="p1" >
-                    Agitated capital of Chile, distinguished in 2011 by the New York Times newspaper among the best destinations in the world, captivated by its art museums, sophisticated restaurants and design proposals that have permeated some of its most famous neighborhoods.
-                    Wine routes, modern ski resorts and an extensive coastline just 100 kilometers away, are another of its great attractions, closeness that allows you to enjoy the snows of the mountain on a single day and then go down to the sands of the coast.
-                </p>
+                <h2 class="pp" >{{tur.subtitulo}}</h2>
+                <p class="p1" >{{tur.descripcion}}</p>
             </div>
-            <a href="#tur2">></a>
+            
         </div>
         
     </div>
-    <div class="fotos" id="tur2">
-        <h3>San Pedro de Atacama. Norte de Chile</h3>
-        <div class="imgs">
-            <a href="#tur1">&#60</a>
-            <a href=""><img src="/static/imagenes/tur2.jpg" alt="Santiago de Chile" srcset=""></a>
-            <div class="carousel-caption d-none d-md-block">
-                <h2 class="pp">Valle de la Luna en San Pedro de Atacama</h2>                          
-                <p class="p1">
-                    Altiplánico town located in the Atacama Desert at heights above 2,400 meters above sea level, fascinating place that dazzles for its picturesque white buildings and narrow streets immersed among majestic landscapes of mountain ranges and salt flats.
-                    Paradise environments such as the Tatio Geysers and the Valleys of the Moon and Death, are another attraction, natural wonders that are interspersed with magical rural villages and ancient archaeological sites of the Atacama culture, which show more than twelve thousand years of human occupation.
-                </p>
-            </div>
-            <a href="#tur3">></a>
-        </div>
-        
-    </div>
-    <div class="fotos" id="tur3">
-        <h3>Parque Nacional Lauca. Norte de Chile</h3>
-        <div class="imgs">
-            <a href="#tur2">&#60</a>
-            <a href=""><img src="/static/imagenes/tur3.jpg" alt="Santiago de Chile" srcset=""></a>
-            <div class="carousel-caption d-none d-md-block"> 
-                <h2 class="pp">Lagunas de Cotacotani</h2>                         
-                <p class="p1">
-                    Without being inside the most known tourist places of Chile, it corresponds to a jewel of natural patrimony located to 165 kilometers of Arica, hidden among altiplanic landscapes, snowy mountains and towns of the Aymará culture, being home of a unique ecosystem in the world that It inhabits the surprising altitude of 4,500 meters above sea level.
-                    Among its most beautiful scenarios are the Cotacotani Lagoons with bofedales and volcanic islets and Chungará Lake, one of the highest on the planet, with emerald-green waters where imposing snowy massifs are reflected and the giant volcanoes Parinacota and Pomerape .
-                </p>
-            </div>
-            <a href="#tur4">></a>
-        </div>
-        
-    </div>
-    <div class="fotos" id="tur4">
-        <h3>Iquique. Norte de Chile</h3>
-        <div class="imgs">
-            <a href="#tur3">&#60</a>
-            <a href=""><img src="/static/imagenes/tur4.jpg" alt="Santiago de Chile" srcset=""></a>
-            <div class="carousel-caption d-none d-md-block">     
-                <h2 class="pp">Playa Cavancha en Iquique</h2>                     
-                <p class="p1">  
-                    Vibrant spa town, a town in northern Chile, which captivates with its white sand beaches and gentle waves, beautiful wooden architectures erected during the time of splendor of the nitrate mines and valuable archaeological museums that show the Chinchorro culture that inhabited the area 5,000 years ago.
-                    Its surroundings are another of its attractions, featuring alternatives such as walks to the neighboring Humberstone and Santa Laura nitrate mines declared World Heritage by Unesco, the enigmatic geoglyphs carved in the hills of Pintados and beautiful green oases, located in the middle of the desert as Pica. More information in the following Iquique article.
-                </p>
-            </div>
-            <a href="#tur5">></a>
-        </div>
-        
-    </div>
-    <div class="fotos" id="tur5">
-        <h3>Isla de Pascua. Centro de Chile</h3>
-        <div class="imgs">
-            <a href="#tur4">&#60</a>
-            <a href=""><img src="/static/imagenes/tur5.jpg" alt="Santiago de Chile" srcset=""></a>
-            <div class="carousel-caption d-none d-md-block">   
-                <h2 class="pp">Atardecer en Ahu Tongariki Isla de Pascua</h2>                       
-                <p class="p1">
-                    Located in the middle of the Pacific Ocean, it is considered one of the tourist places in Chile that generates more curiosity, both for its enigmatic stone sculptures known as Moáis and for the mysterious legends and traditions of the Rapanui ancestral culture.
-                    Declared a World Heritage Site by Unesco, it is also a wonder for its exotic beauty scenarios, among which are the pink sands of Ovahe Beach, the turquoise waters of Anakena or the innumerable caves that make their way between the slopes of the volcanoes More information in the following Easter Island article.
-                </p>
-            </div>
-            <a href="#tur6">></a>
-        </div>
-        
-    </div>
-    <div class="fotos" id="tur6">
-        <h3>Valparaíso. Centro de Chile</h3>
-        <div class="imgs">
-            <a href="#tur5">&#60</a>
-            <a href=""><img src="/static/imagenes/tur6.jpg" alt="Santiago de Chile" srcset=""></a>
-            <div class="carousel-caption d-none d-md-block">   
-                <h2 class="pp">Cerros de Valparaíso</h2>                       
-                <p class="p1">
-                    Known as the jewel of the Pacific, it corresponds to a port city declared a World Heritage Site by Unesco. Famous for its upholstered hills with colorful architectures, steep staircases and unique elevators, which like an amphitheater embrace the bay.
-                    Agitated nightlife and wide cultural offer are other features, considered the Capital of Culture of Chile, seduced both by street art, with thousands of walls graffitied by local artists, as for its many shows, festivals and carnivals that Throughout the year they make the city vibrate with dance, theater, music and painting. More information in the following Valparaíso article.
-                </p>
-            </div>
-            <a href="#tur7">></a>
-        </div>
-       
-    </div>
-    <div class="fotos" id="tur7">
-        <h3>Chiloé. Sur de Chile</h3>
-        <div class="imgs">
-            <a href="#tur6">&#60</a>
-            <a href=""><img src="/static/imagenes/tur7.jpg" alt="Santiago de Chile" srcset=""></a>
-            <div class="carousel-caption d-none d-md-block">   
-                <h2 class="pp">Palafitos de Chiloé</h2>                       
-                <p class="p1">
-                    Archipelago of magical islands and small islets scattered among the waters of the Pacific Ocean, home to a fascinating culture rich in legends and traditions that coexist between rural landscapes, fishing coves and colorful stilt houses that rise above the sea.
-                    Its churches deserve a separate chapter, declared World Heritage by Unesco, they build a true pilgrimage route, located no more than ten kilometers from each other, amazed by the simplicity of their forms and their construction entirely in wood. More information in the following Chiloé article
-                </p>
-            </div>
-            <a href="#tur8">></a>
-        </div>
-       
-    </div>
-    <div class="fotos" id="tur8">
-        <h3>Carretera Austral. Sur de Chile</h3>
-        <div class="imgs">
-            <a href="#tur7">&#60</a>
-            <a href=""><img src="/static/imagenes/tur8.jpg" alt="Santiago de Chile" srcset=""></a>
-            <div class="carousel-caption d-none d-md-block">   
-                <h2 class="pp">Ventisquero Colgante en Parque Nacional Queulat</h2>                       
-                <p class="p1">    
-                    1240 kilometers route that crosses the Chilean Patagonia, which can be done both by car and bicycle, with a start in the fishing town of Puerto Montt to culminate in Villa O'Higgins, gateway to the Southern Ice Fields.
-                    Along its route, natural scenarios of extraordinary beauty are crossed, tourist places of Chile hidden in the vastness of the virgin forests, magical places such as the millenary alerces of Hornopirén, the fjords of the Pumalín Park, the thermal waters of Puyuhuapi, the hanging glacier of Queulat National Park or the fast-flowing Futaleufu, among many others
-                </p>
-            </div>
-            <a href="#tur9">></a>
-        </div>
-       
-    </div>
-    <div class="fotos" id="tur9">
-        <h3>Laguna San Rafael. Sur de Chile</h3>
-        <div class="imgs">
-            <a href="#tur8">&#60</a>
-            <a href=""><img src="/static/imagenes/tur9.jpg" alt="Santiago de Chile" srcset=""></a>
-            <div class="carousel-caption d-none d-md-block"> 
-                <h2 class="pp">Laguna San Rafael</h2>                         
-                <p class="p1">     
-                    Among the Northern Ice Fields in an area recognized as a World Biosphere Reserve by Unesco, this idyllic landscape is located, home of the majestic San Rafael Glacier, which is born in the San Valentín snow covered fifteen kilometers away, to finally end in the lagoon of the same name.
-                    Only accessible by means of special boats, it is enchanted by its ice towers that reach seventy meters high, huge icebergs that float on the waters and an overwhelming silence that allows you to listen to the constant icefalls.
-                </p>
-            </div>
-            <a href="#tur10">></a>
-        </div>
-        
-
-    </div>
-    <div class="fotos" id="tur10">
-        <h3>Parque Nacional Torres del Paine. Sur de Chile</h3>
-        <div class="imgs">
-            <a href="#tur9"> &#60 </a>
-            <a href=""><img src="/static/imagenes/tur10.jpg" alt="Santiago de Chile" srcset=""></a>
-            <div class="carousel-caption d-none d-md-block">  
-                <h2 class="pp">Parque Nacional Torres del Paine</h2>                        
-                <p class="p1">      
-                    Nature sanctuary recognized as a World Biosphere Reserve by Unesco, home to a large wildlife and unparalleled scenic beauty, formed from glaciers, mountains, valleys, rivers and lakes.
-                    Its main attraction is called Torres del Paine, three huge granite towers modeled over twelve million years by the force of glacial ice, acquiring in time curious sharp forms that reach their splendor with the reddish tones of dawn and sunset.
-                </p>
-            </div>
-            <a href="#tur1">></a>
-        </div>
-        
-    </div>
+    
+    {% endfor %}
+    {% else %}
+    <h1>No hay registros</h1>
+    {% endif %}
+    
 
     
 
