@@ -25,13 +25,15 @@
             <li><a href="{% url 'tourism' %}">Tourism</a></li>
             {% if user.is_authenticated %}
             <li><a href="{% url 'contact' %}">Contact Us</a></li>
+            <li><a href="{% url 'mensajes' %}">Mensajes</a></li>
             {% endif %}
             {% if user.is_superuser %}
-              <li><a href="{% url 'mantenedor' %}">Mantenedor</a> </li>
-              {% endif %}
+            <li><a href="{% url 'mantenedor' %}">Mantenedor</a> </li>
+            {% endif %}
         </ul>
         <ul class="nav navbar-nav navbar-form">
                 <div id="google_translate_element"></div><script type="text/javascript">
+
                   function googleTranslateElementInit() {
                     new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, multilanguagePage: true}, 'google_translate_element');
                   }
@@ -53,6 +55,7 @@
 <div class="jumbotron text-center">
     <h1>Tourism</h1>
     <p>What you need to know, you find it here</p> 
+        
   </div>
   
 <br>

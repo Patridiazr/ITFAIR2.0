@@ -18,6 +18,7 @@ urlpatterns =[
     path('Service/',views.servise,name="service"),
     path('tourism/',views.tourism,name="tourism"),
     path('singup/',views.singup, name="singup"),
+    path('mensajes/',views.mensaje, name="mensajes"),
     path('login/',views.login, name="login"),
     path('login/iniciar',views.login_iniciar,name="iniciar"),
     path('singup/crear', views.crear_U, name="crear"),

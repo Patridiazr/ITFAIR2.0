@@ -25,6 +25,7 @@
                 <li><a href="{% url 'tourism' %}">Tourism</a></li>
                 {% if user.is_authenticated %}
             <li><a href="{% url 'contact' %}">Contact Us</a></li>
+            <li><a href="{% url 'mensajes' %}">Mensajes</a></li>
             {% endif %}
               {% if user.is_superuser %}
               <li><a href="{% url 'mantenedor' %}">Mantenedor</a> </li>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}"> 
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %} ">
+    <link rel="stylesheet" href="{% static 'css/flexboxgrid.css' %} ">
+    <link rel="stylesheet" href="{% static 'css/estilo.css' %} ">
+    <script src="../static/"></script>
+    <title>Mensajes</title>
+</head>
+<body>
+
+<!--NAVBAR-->
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">IT-FAIR</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'service' %}">Services</a></li>
+                <li><a href="{% url 'tourism' %}">Tourism</a></li>
+                <li><a href="{% url 'contact' %}">Contact Us</a></li>
+                <li><a href="{% url 'mantenedor' %}">Mantenedor</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-form">
+                <div id="google_translate_element"></div><script type="text/javascript">
+                    function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, multilanguagePage: true}, 'google_translate_element');
+                }
+                </script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                {% if not user.is_authenticated %}
+                <li><a href="{% url 'singup' %}"><span class="glyphicon glyphicon-user" ></span> Sign Up</a></li>
+                <li><a href="{% url 'login' %}" ><span class="glyphicon glyphicon-user" ></span>Login</a></li>
+                {% else %}
+                <li><a href="{% url 'logout' %}"><span class="glyphicon glyphicon-user" ></span>Logout</a></li>
+                {% endif %}
+            </ul> 
+        </div>
+    </nav>
+<!---Listados-->
+    <h1>Listado Mensajes</h1>
+    
+    
+    {% if user.is_superuser %}
+    <!--Listado mensajes administrador-->
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <td>Nombre</td>
+                <td>Correo</td>
+                <td>Telefono</td>
+                <td>Mensaje</td>
+                <td>Acciones</td>
+            </tr>
+        </thead>
+        <tbody>
+            {% if mensajes %}
+            {% for men in mensajes %}
+            <tr>
+                <td>{{men.nombre}}</td>
+                <td>{{men.correo}}</td>
+                <td>{{men.celu}}</td>
+                <td>{{men.mensaje}}</td>
+                <td>
+                    <button>Responder</button>
+                    <button>Archivar</button>
+                </td>
+            </tr>
+            {% endfor %}
+            {% else %}
+            <tr><td><h2>No hay mensajes</h2></td></tr>
+            {% endif %}
+        </tbody>
+    </table>
+    {% else %}
+    <!---listado mensajes del usuario-->
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <td>Nombre</td>
+                <td>Correo</td>
+                <td>Telefono</td>
+                <td>Mensaje</td>
+                <td>Acciones</td>
+            </tr>
+        </thead>
+        <tbody>
+            {% if mensajes %}
+            {% for men in mensajes %}
+            <tr>
+                <td>{{men.nombre}}</td>
+                <td>{{men.correo}}</td>
+                <td>{{men.celu}}</td>
+                <td>{{men.mensaje}}</td>
+                <td>
+                    <button>Responder</button>
+                    <button>Archivar</button>
+                </td>
+            </tr>
+            {% endfor %}
+            {% else %}
+            <tr><td><h2>No hay mensajes</h2></td></tr>
+            {% endif %}
+        </tbody>
+    </table>
+    {% endif %}
+    
+<!--FOOTER-->
+    <footer class="footer">
+        <div style="text-align: center">
+            <p style="color:grey" >Copyright &copy 2018 All Rights Reserved.</p>
+            <div>
+                <a href="https://www.facebook.com"><i class="fa fa-facebook" ></i></a>
+                <a href="#"><i class="fa fa-instagram"></i></a>
+                <a href="#"><i class="fa fa-twitter"></i></a>
+                <a href="#"><i class="fa fa-google-plus"></i></a> 
+            </div>
+        </div>
+    </footer>
+      
+    <script src="{% static 'js/jquery-3.3.1.js' %}"></script>
+    <script src="{% static 'js/bootstrap.js' %} "></script>
+    <script src="{% static 'js/app.js' %} "></script>   
+    <script src="{% static 'js/validar.js' %} "></script>
+
+    
+</body>
+</html>

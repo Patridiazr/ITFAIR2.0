@@ -1,7 +1,7 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="{% static 'css/estilo.css' %} ">
     <script src="../static/"></script>
     <title>Services</title>
-  </head>
+</head>
   <body>
     <!---------------------------- BARRA DE NAVEGACION ------------------------>
     
@@ -27,6 +27,7 @@
           <li><a href="{% url 'tourism' %}">Tourism</a></li>
           {% if user.is_authenticated %}
           <li><a href="{% url 'contact' %}">Contact Us</a></li>
+          <li><a href="{% url 'mensajes' %}">Mensajes</a></li>
           {% endif %}
           {% if user.is_superuser %}
           <li><a href="{% url 'mantenedor' %}">Mantenedor</a> </li>

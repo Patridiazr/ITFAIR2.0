@@ -25,6 +25,11 @@ def tourism(request):
     context = {'turistico': tur}
     return render(request,"tourism.html",context)
 
+def mensaje(request):
+    men = Mensaje.objects.all()
+    context = {'mensajes': men}
+    return render(request,"mensajes.html",context)
+
 def singup(request):
     return render(request,"singup.html")
     
@@ -62,11 +67,9 @@ def logout_view(request):
 def crear_U(request):
     correo = request.POST.get('email')
     contra = request.POST.get('psw')
-    username = request.POST.get('username')
-    rut = request.POST.get('dni')
-    nombre = request.POST.get('name')
+    username = request.POST.get('username')   
     nacionalidad = request.POST.get('nationality')
-    usu = Usuario(correo=correo, contra=contra, rut=rut, nombre=nombre, nacionalidad=nacionalidad)
+    usu = Usuario(correo=correo, contra=contra, nacionalidad=nacionalidad)
     usu.save()
     user = User.objects.create_user(username=username,email=correo,password=contra)
     user.save()
@@ -80,9 +83,8 @@ def eliminar_U(request, id_u):
 #CRUD MENSAJE +
 
 def crear_M(request):
-    correo = request.POST.get('')
-    mensaje = request.POST.get('menssage')
-    org = request.POST.get('org')
+    correo = User.last_login.email
+    mensaje = request.POST.get('menssage')    
     celu = request.POST.get('phone')
     nombre = request.POST.get('name')
     men = Mensaje(correo=correo, orga=org, mensaje=mensaje, nombre=nombre, celu=celu)

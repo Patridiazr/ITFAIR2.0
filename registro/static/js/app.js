@@ -1,3 +1,7 @@
+$(function(){
+    cargarCMB()
+})
+
 if ( ! Modernizr.adownload ) {
     var $link = $('a');
    
@@ -57,15 +61,20 @@ function valSingUp(){
 
 }
 
+
+
+
+
+
 function valSelect(obj){
     var value
     value = obj.value    
     console.log(value)
     if(value == 3 || value == "3" || value == "d"){
-             
         document.getElementById("nac").prop.disabled = false 
     }
 }
+
 
 
 
