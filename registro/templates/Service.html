@@ -18,42 +18,38 @@
     
     <nav class="navbar navbar-inverse">
       <div class="container-fluid">
-          <div class="navbar-header">
-              <a class="navbar-brand" href="#">IT-FAIR</a>
-          </div>
-          <ul class="nav navbar-nav">
-            <li><a href="{% url 'home' %}">Home</a></li>
-            <li><a href="{% url 'service' %}">Services</a></li>
-            <li><a href="{% url 'tourism' %}">Tourism</a></li>
-            {% if user.is_authenticated %}
-            <li><a href="{% url 'contact' %}">Contact Us</a></li>
-            {% endif %}
-              {% if user.is_superuser %}
-              <li><a href="{% url 'mantenedor' %}">Mantenedor</a> </li>
-              {% endif %}
-            
-            
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">IT-FAIR</a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li><a href="{% url 'home' %}">Home</a></li>
+          <li><a href="{% url 'service' %}">Services</a></li>
+          <li><a href="{% url 'tourism' %}">Tourism</a></li>
+          {% if user.is_authenticated %}
+          <li><a href="{% url 'contact' %}">Contact Us</a></li>
+          {% endif %}
+          {% if user.is_superuser %}
+          <li><a href="{% url 'mantenedor' %}">Mantenedor</a> </li>
+          {% endif %}
         </ul>
-        
-          <ul class="nav navbar-nav navbar-form">
-              <div id="google_translate_element"></div><script type="text/javascript">
-                function googleTranslateElementInit() {
-                  new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, multilanguagePage: true}, 'google_translate_element');
-                }
-                </script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
-          </ul>
-          <ul class="nav navbar-nav navbar-right">
-              {% if not user.is_authenticated %}
-              <li><a href="{% url 'singup' %}"><span class="glyphicon glyphicon-user" ></span> Sign Up</a></li>
-              <li><a href="{% url 'login' %}" ><span class="glyphicon glyphicon-user" ></span>Login</a></li>
-            {% else %}
-              <li><a href="{% url 'logout' %}"><span class="glyphicon glyphicon-user" ></span>Logout</a></li>
-            {% endif %}
+        <ul class="nav navbar-nav navbar-form">
+          <div id="google_translate_element"></div><script type="text/javascript">
+            function googleTranslateElementInit() {
+            new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, multilanguagePage: true}, 'google_translate_element');
+            }
+            </script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          {% if not user.is_authenticated %}
+          <li><a href="{% url 'singup' %}"><span class="glyphicon glyphicon-user" ></span> Sign Up</a></li>
+          <li><a href="{% url 'login' %}" ><span class="glyphicon glyphicon-user" ></span>Login</a></li>
+          {% else %}
+          <li><a href="{% url 'logout' %}"><span class="glyphicon glyphicon-user" ></span>Logout</a></li>
+          {% endif %}
         </ul> 
       </div>
-      
-  </div>
+    </nav>      
+    
       <!-- <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
         <div class="modal-dialog">
         <div class="loginmodal-container">
@@ -71,18 +67,17 @@
         </div>
       </div>
       </div> -->
-</nav>
+
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-        <ol class="carousel-indicators">
-          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-        </ol>
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img class="d-block w-100 center-crop" src="/static/imagenes/img1.jpg" alt="First slide">
-          </div>
-          
+      <ol class="carousel-indicators">
+        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+       <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img class="d-block w-100 center-crop" src="/static/imagenes/img1.jpg" alt="First slide">
+        </div>
         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
           <span class="sr-only">Previous</span>
@@ -91,78 +86,72 @@
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
           <span class="sr-only">Next</span>
         </a>
-    </div>
+      </div>
     </div>
     <br>
     <div class="container">
       <div class="row">
-      <div class="col-md-4">
+        <div class="col-md-4">
           <div class="card">
-              <img src="/static/imagenes/Pasaport.jpg" alt="Avatar" style="width:200px">
-                <h4><b>Visa Types</b></h4> 
-                <p> Chile has a variety of visas such as:</p>
-                <p> -Temporary visa</p>
-                <p> -Subject to contract</p>
-                <p> -Student visa</p> 
-                <a href="#openModal1" class="btn btn-primary">Learn More</a>
-                <div id="openModal1" class="modalDialog" >
-                  <div>
-                    <a href="#close" title="Close" class="close">X</a>
-                    <div>
-                        <h4 class="modal-title">Visa Types</h4>
-                    </div>
-                    <div class="modal-body">
-                        <p>For more information on visa types, download the following file</p>
-                        <a href="pdf/Visa Types.en.pdf" target="blank">Download PDF Visa Types</a>
-                      </div>
-                      
-                  </div>
+            <img src="/static/imagenes/Pasaport.jpg" alt="Avatar" style="width:200px">
+            <h4><b>Visa Types</b></h4> 
+            <p> Chile has a variety of visas such as:</p>
+            <p> -Temporary visa</p>
+            <p> -Subject to contract</p>
+            <p> -Student visa</p> 
+            <a href="#openModal1" class="btn btn-primary">Learn More</a>
+            <div id="openModal1" class="modalDialog" >
+              <div>
+                <a href="#close" title="Close" class="close">X</a>
+                <div>
+                  <h4 class="modal-title">Visa Types</h4>
                 </div>
-          </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card">
-              <img src="/static/imagenes/Pasaport.jpg" alt="Avatar" style="width:200px">
-                <h4><b>Immigration offices</b></h4>   
-                <p>Throughout Chile you will find a great variety of foreign offices.</p> 
-                <a href="#openModal2" class="btn btn-primary">Learn More</a>
-                <div id="openModal2" class="modalDialog">
-                  <div>
-                    <a href="#close" title="Close" class="close">X</a>
-                    <div>
-                        <h4 class="modal-title">Immigration offices</h4>
-                    </div>
-                    <div class="modal-body">
-                        <p>Some text in the modal.</p>
-                      </div>
-                      
-                  </div>
-                  </div>
-                
-           </div>
-           </div>
-           <div class="col-md-4">
-              <div class="card">
-                <img src="/static/imagenes/Pasaport.jpg" alt="Avatar" style="width:200px">
-                  <h4><b>Justice</b></h4>   
-                  <p>The information you need about access to justice in Chile</p>
-                <a href="#openModal3" class="btn btn-primary">Learn More</a>
-                <div id="openModal3" class="modalDialog">
-                  <div>
-                    <a href="#close" title="Close" class="close" >X</a>
-                    <div>
-                        <h4 class="modal-title">Justice</h4>
-                    </div>
-                    <div class="modal-body">
-                        <p>Information about access to justice, we also have it. </p>
-                        <a href="pdf/Justice.en.pdf" target="blank">Download PDF Justice</a>
-                      </div>
-                      
-                  </div>
+                <div class="modal-body">
+                  <p>For more information on visa types, download the following file</p>
+                  <a href="pdf/Visa Types.en.pdf" target="blank">Download PDF Visa Types</a>
                 </div>
-             </div>
-             </div>
-        </div>  
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col-md-4">
+      <div class="card">
+        <img src="/static/imagenes/Pasaport.jpg" alt="Avatar" style="width:200px">
+        <h4><b>Immigration offices</b></h4>   
+        <p>Throughout Chile you will find a great variety of foreign offices.</p> 
+        <a href="#openModal2" class="btn btn-primary">Learn More</a>
+        <div id="openModal2" class="modalDialog">
+          <div>
+            <a href="#close" title="Close" class="close">X</a>
+            <div>
+              <h4 class="modal-title">Immigration offices</h4>
+            </div>
+            <div class="modal-body">
+              <p>Some text in the modal.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+      <img src="/static/imagenes/Pasaport.jpg" alt="Avatar" style="width:200px">
+      <h4><b>Justice</b></h4>   
+      <p>The information you need about access to justice in Chile</p>
+      <a href="#openModal3" class="btn btn-primary">Learn More</a>
+      <div id="openModal3" class="modalDialog">
+        <div>
+          <a href="#close" title="Close" class="close" >X</a>
+        </div>
+        <div>
+          <h4 class="modal-title">Justice</h4>
+        </div>
+        <div class="modal-body">
+          <p>Information about access to justice, we also have it. </p>
+          <a href="pdf/Justice.en.pdf" target="blank">Download PDF Justice</a>
         </div>
       </div>
     </div>
