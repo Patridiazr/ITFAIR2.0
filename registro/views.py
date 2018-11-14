@@ -38,6 +38,9 @@ def singup(request):
 def login(request):
     return render(request,"login.html")
 
+def contrasenia(request):
+    return render(request,'contraseña.html')
+
 def listado(request):
     usuario = Usuario.objects.all()
     contexto3 = {'usuario': usuario}
@@ -155,3 +158,8 @@ def eliminar_S(request, id_s):
     return redirect('mantenedor')
 
 
+def cambio_contrasenia(request):
+    contrasenia = request.POST.get('contrasenia','')
+    persona.contrasenia = contrasenia
+    persona.save()
+    return redirect('/index/')

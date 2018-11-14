@@ -13,23 +13,30 @@
     <title>LOGIN</title>
 </head>
 <body>
-    <form method="POST" class="form-signin" action="{% url 'iniciar' %}">
-            {% csrf_token %}
-            <div class="form-row">
-                <div class="col">
-                    <label for="inputRut"  class="sr-only">DNI -- N° Pasaport</label>
-                    <input type="text" id="inputRut" name="username" class="form-control" placeholder="User Name" required autofocus> 
-                </div>
-              </div>
-            <div class="form-row">
-                <div class="col">
-                    <label for="inputPassword" class="sr-only">Contraseña</label>
-                    <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
-                </div>
-            </div>
-        <br>
-          <button class="btn btn-lg btn-primary btn-block" type="submit">Iniciar Sesión</button>
-          <p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>
-        </form>
+    <div class="container">
+            <form method="POST" class="form-signin" action="{% url 'iniciar' %}">
+                    {% csrf_token %}
+                    <div class="form-row">
+                        <div class="col">
+                            <label for="inputRut"  class="sr-only">DNI -- N° Pasaport</label>
+                            <input type="text" id="inputRut" name="username" class="form-control" placeholder="User Name" required autofocus> 
+                        </div>
+                      </div>
+                    <div class="form-row">
+                        <div class="col">
+                            <label for="inputPassword" class="sr-only">Contraseña</label>
+                            <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
+                        </div>
+                    </div>
+                    <a href="/password/recovery/" style="color: aliceblue">¿Olvidaste tu contraseña?</a>
+                <br>
+                <br>
+                  <button class="btn btn-lg btn-primary btn-block" type="submit">Iniciar Sesión</button>
+                  <br>   
+                  <p class="mt-5 mb-3 text">&copy; 2017-2018</p>
+                </form>
+
+
+    </div>
 </body>
 </html>
