@@ -3,6 +3,8 @@ from .models import Usuario, Mensaje, Turistico, Servicios
 from django.contrib.auth import logout, authenticate, login as auth_login
 from django.http import HttpResponse
 from django.contrib.auth.models import User
+from django.core.mail import send_mail
+from django.core.mail import EmailMessage
 
 
 
@@ -83,11 +85,11 @@ def eliminar_U(request, id_u):
 #CRUD MENSAJE +
 
 def crear_M(request):
-    correo = User.last_login.email
-    mensaje = request.POST.get('menssage')    
-    celu = request.POST.get('phone')
+    correo = request.POST.get('email') 
+    mensaje = request.POST.get('message')    
+    telefono = request.POST.get('phone')
     nombre = request.POST.get('name')
-    men = Mensaje(correo=correo, orga=org, mensaje=mensaje, nombre=nombre, celu=celu)
+    men = Mensaje(correo=correo, mensaje=mensaje, nombre=nombre, telefono=telefono)
     men.save()
     return redirect('contact')
 
@@ -151,8 +153,5 @@ def eliminar_S(request, id_s):
     servicios = Servicios.objects.get(id=id_s)
     servicios.delete()
     return redirect('mantenedor')
-
-
-#++
 
 

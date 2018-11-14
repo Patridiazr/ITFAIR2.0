@@ -22,6 +22,7 @@ urlpatterns =[
     path('login/',views.login, name="login"),
     path('login/iniciar',views.login_iniciar,name="iniciar"),
     path('singup/crear', views.crear_U, name="crear"),
+    path('contact/enviar',views.crear_M, name="enviar"), 
     path('logout/',views.logout_view, name="logout"),
     path('mantenedor/',views.listado, name="mantenedor"),
     path('mantenedor/eliminarU/<int:id_u>', views.eliminar_U, name="eliminarU"),

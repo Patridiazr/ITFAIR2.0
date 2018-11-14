@@ -18,11 +18,10 @@ if ( ! Modernizr.adownload ) {
 
 function valContacUs(){
     
-    var nombre, correo, telefono, organizacion, mensaje
+    var nombre, correo, telefono, mensaje
     nombre = document.getElementById("nom").value
     correo = document.getElementById("cor").value
     telefono = document.getElementById("fon").value
-    organizacion = document.getElementById("org").value
     mensaje = document.getElementById("mes").value
 
     if(nombre == "" || correo == "" || mensaje == ""){
@@ -35,12 +34,14 @@ function valContacUs(){
         return false  
     } 
 
-    if(mensaje.lengt > 200){
-        alert("Max length of the message is 200 characters")
+    if(mensaje.lengt > 100){
+        alert("Max length of the message is 100 characters")
         return false
     }
     
 }
+
+
 function valSingUp(){
     var nombre, nacionalidad, correo, contrasena, contrasena2
     nombre = document.getElementById("nom") .value

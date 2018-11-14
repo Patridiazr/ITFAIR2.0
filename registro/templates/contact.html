@@ -77,19 +77,20 @@
 <!---------------------------- Formulario ------------------------>
 
 <div class="container" >
-    <form action="#" id="formulario" method="get">
+    <form action="{% url 'enviar' %}" id="formulario" method="POST">
+        {% csrf_token %}
         <div class="row">
         <div class="col-md-4"></div>
         <div class="col-md-4">
           <div class="form-group"></div>
           <!--name-->
           <h3  for="name">Name *</h3>
-          <input style="text-align: left" type="text" class="form-control" name="name" required  placeholder="Enter your Name" id="nom">   
+          <input style="text-align: left"  value="{{user.username}}" type="text" class="form-control" name="name" required  placeholder="Enter your Name" id="nom">   
           <br>
           <!--Email-->
           
-          <h3 for="Email">Email *</h3>
-          <input  style="text-align: left" type="email" class="form-control" name="Email" required  value={{user.email}} id="cor">
+          <h3 for="email">Email *</h3>
+          <input  style="text-align: left" type="email" class="form-control" name="email" required  placeholder="Enter you Email" id="cor">
           <br>
           
         <!--phone-->
@@ -98,15 +99,15 @@
             <br> 
                 
           <!--menssage-->
-          <h3  for="Menssage">Message *</h3>
-          <textarea style="text-align: left" type="text" name="menssage" rows="10" cols="40"  placeholder="Enter your message" id="mes"></textarea>    
+          <h3  for="Message">Message *</h3>
+          <textarea style="text-align: left" type="text" name="message" rows="10" cols="40"  placeholder="Enter your message" id="mes"></textarea>    
           <br>
 
 
 
         <br>  
           <button type="reset" class="btn btn-danger btn-block" >Clear</button>
-          <button type="submit" class="btn btn-outline-success btn-block" onclick="return valContacUs()"  value="guardar">Send</button>
+          <button type="submit" class="btn btn-outline-success btn-block" onclick="return valContacUs()">Send</button>
           <br>
         </div>
         </div>

@@ -13,7 +13,7 @@ class Mensaje(models.Model):
     nombre = models.CharField(max_length = 100)
     correo = models.CharField(max_length = 100)
     mensaje = models.CharField(max_length = 100)
-    celu = models.IntegerField()
+    telefono = models.IntegerField()
     
 
 
@@ -29,3 +29,5 @@ class Servicios(models.Model):
     archivo = models.FileField(upload_to='archivos/')    
     downl = models.CharField(max_length = 100)    
     descripcion = models.CharField(max_length = 100)
+
+
